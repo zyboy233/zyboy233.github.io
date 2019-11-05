@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>node.js进阶 ~ zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 八月 30日 2018, 11:00 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.7k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      8 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<ul>
+<li><p><a href="#get方法">get方法</a></p>
+</li>
+<li><p><a href="#post方法">post</a></p>
+</li>
+<li><p><a href="#xhr">xhr(XMLHttpRequest)</a></p>
+</li>
+<li><p><a href="#forms表单">forms表单</a></p>
+</li>
+<li><p><a href="#fs">fs(文件读写)</a></p>
+</li>
+<li><p><a href="#小项目练习">小项目练习</a></p>
+</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="get方法"><a href="#get方法" class="headerlink" title="get方法"></a>get方法</h3><blockquote>
+<p><code>index.html</code>,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/form" target="_blank" rel="noopener" title="点击查看">参考源码</a></p>
+</blockquote>
+<pre><code class="html">...
+&lt;form action=&quot;/regist&quot;&gt;
+    &lt;h1&gt;regist&lt;/h1&gt;
+    &lt;label for=&quot;&quot;&gt;账号:&lt;/label&gt;
+    &lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;请输入账号&quot;&gt;
+    &lt;br&gt;
+    &lt;label for=&quot;&quot;&gt;密码:&lt;/label&gt;
+    &lt;input name=&quot;psw&quot; type=&quot;password&quot; placeholder=&quot;请输入密码&quot;&gt;
+    &lt;br&gt;
+    &lt;label for=&quot;&quot;&gt;重复密码:&lt;/label&gt;
+    &lt;input name=&quot;pswa&quot; type=&quot;password&quot; placeholder=&quot;请重复密码&quot;&gt;
+    &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;/form&gt;
+...</code></pre>
+<blockquote>
+<p><code>index.js</code></p>
+</blockquote>
+<pre><code class="js">var express = require(&#39;express&#39;)
+// post请求方式会将参数放入到请求体当中
+// 所以需要引入解析请求体的模块
+var bodyParser = require(&#39;body-parser&#39;)
+
+var web = express()
+
+web.use(express.static(&#39;public&#39;))
+
+// 设置对url进行编码 并且不允许url进行扩展
+// 如果设置为false 那么参数只能为数值或者字符串
+// 如果设置为True 那么参数为任意类型
+web.use(bodyParser.urlencoded({extended:false}))
+
+// 存储注册成功以后的账号和密码
+account = &#39;&#39;
+psw = &#39;&#39;
+
+web.get(&#39;/regist&#39;,function(req,res){
+    var password = req.query.psw
+
+    var password2 = req.query.pswa
+
+    var user = req.query.user
+
+    if(user != account &amp;&amp; password == password2){
+        account = user
+        psw = password
+        res.send(&#39;恭喜注册登陆成功! 账号是&#39; + user + &#39;,密码是&#39; + password + &#39;,请妥善保管&#39;)
+    }
+    else{
+        res.send(&#39;注册失败,账号已经注册或者密码不一致&#39;)
+    }
+
+    console.log(password)
+    console.log(password2)
+})</code></pre>
+<h3 id="post方法"><a href="#post方法" class="headerlink" title="post方法"></a>post方法</h3><blockquote>
+<p><code>index.html</code>,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/form" target="_blank" rel="noopener" title="点击查看">参考源码</a></p>
+</blockquote>
+<pre><code class="html">&lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+    &lt;h1&gt;login&lt;/h1&gt;
+    &lt;label for=&quot;&quot;&gt;账号:&lt;/label&gt;
+    &lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;请输入账号&quot;&gt;
+    &lt;br&gt;
+    &lt;label for=&quot;&quot;&gt;密码:&lt;/label&gt;
+    &lt;input name=&quot;password&quot; type=&quot;text&quot; placeholder=&quot;请输入密码&quot;&gt;
+    &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;
+&lt;/form&gt;</code></pre>
+<blockquote>
+<p><code>index.js</code></p>
+</blockquote>
+<pre><code class="js">web.post(&#39;/login&#39;,function(req,res){
+    var name = req.body.user
+    var password = req.body.password
+
+    if(name == account &amp;&amp; password == psw){
+        res.send(&#39;恭喜登陆成功&#39;)
+    }
+    else{
+        res.send(&#39;登陆失败,请检查账号和密码&#39;)
+    }
+})</code></pre>
+<h3 id="xhr"><a href="#xhr" class="headerlink" title="xhr"></a>xhr</h3><blockquote>
+<p><code>index.html</code>,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/xhr" target="_blank" rel="noopener" title="点击查看">参考源码</a></p>
+</blockquote>
+<pre><code class="html">&lt;!-- &lt;form action=&quot;/login&quot;&gt;
+        &lt;input type=&quot;submit&quot;&gt;
+    &lt;/form&gt; --&gt;
+
+    &lt;!-- 
+    xhr
+    XMLHTTPRequest 是ajax的核心
+    ajax是数据请求方式的一种
+    特点:
+    1.前端可以发送数据到后端
+    2.可以接受从后端发送过来的数据
+    3.可以解析从后端传过来的数据
+    3.可以对页面进行局部刷新操作
+    --&gt;
+    &lt;button onclick=&quot;get()&quot;&gt;xhr之get请求&lt;/button&gt;
+    &lt;button onclick=&quot;post()&quot;&gt;xhr之post请求&lt;/button&gt;
+
+    &lt;script&gt;
+        function get(){
+            // 创建一个数据请求的实例化对象
+            var xhr =new XMLHttpRequest()
+            // on 在...时候 ready 准备 state 状态 change 改变
+            // 在xhr的准备状态发生改变时 调用该方法
+            xhr.onreadystatechange = function(){
+                // 判断xhr的准备状态
+                switch(xhr.readyState){
+                    case 0:{
+                        console.log(&#39;open方法已经调用, 但是send方法没有调用&#39;)
+                        break
+                    }
+                    case 1:{
+                        console.log(&#39;send方法已经调用, 但是服务器并没有返回数据&#39;)
+                        break
+                    }
+                    case 2:{
+                        console.log(&#39;send方法已经调用, 服务器开始返回数据&#39;)
+                        break
+                    }
+                    case 3:{
+                        console.log(&#39;服务器已经返回部分数据&#39;)
+                        break
+                    }
+                    case 4:{
+                        console.log(&#39;服务器已经返回全部数据&#39;)
+                        console.log(xhr.response)
+                        console.log(xhr.responseText)
+                        console.log(xhr.responseURL)
+                        console.log(xhr.status)
+                        console.log(xhr.statusText)
+                        console.log(xhr.getAllResponseHeaders())
+                        break
+                    }
+                }
+            }
+            // open方法里面两个参数
+            // 参数1:数据请求方式 get post
+            // 参数2:请求的接口 参数才接口后面进行拼接,地址栏方式传参
+            xhr.open(&#39;get&#39;,&#39;/getTest?name=妹子UI&amp;des=前端app框架&#39;)
+            // 发送数据到后端
+            xhr.send()
+        }
+        function post(){
+            var xhr = new XMLHttpRequest()
+            // post请求方式 接口后面不能追加参数
+            xhr.open(&#39;post&#39;,&#39;/postTest&#39;)
+
+            // 如果使用post请求方式 而且参数是以key=value这种方式提交的
+            // 那么需要设置请求头的类型
+            xhr.setRequestHeader(&#39;Content-Type&#39;,&#39;application/x-www-form-urlencoded&#39;)
+            xhr.send(&#39;star=1&amp;des=东西很好,价格公道,但是差评,人生就是这么奇妙&#39;)
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    console.log(xhr.responseText)
+                }
+            }
+        }
+    &lt;/script&gt;</code></pre>
+<blockquote>
+<p><code>index.js</code></p>
+</blockquote>
+<pre><code class="js">var express = require(&#39;express&#39;)
+var bodyParser = require(&#39;body-parser&#39;)
+var web = express()
+web.use(express.static(&#39;public&#39;))
+web.use(bodyParser.urlencoded({extended:false}))
+
+web.get(&#39;/getTest&#39;,function(req,res){
+    var name = req.query.name
+
+    var des = req.query.des
+
+    setTimeout(function(){
+        res.send(&#39;听说有一种&#39; + des + &quot;非常厉害,叫做&quot; + name)
+    },2000)
+})
+web.post(&#39;/postTest&#39;,function(req,res){
+    var star = req.body.star
+    var des = req.body.des
+
+    setTimeout(function(){
+        res.send(&#39;商品评价成功&#39;)
+    },2000)
+})
+web.listen(&#39;8080&#39;,function(){
+    console.log(&#39;服务器启动成功...&#39;)
+})</code></pre>
+<h3 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a>form表单</h3><blockquote>
+<p><code>public/index.html</code>,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/form" target="_blank" rel="noopener" title="点击查看">参考源码</a></p>
+</blockquote>
+<pre><code class="html">&lt;button onclick=&quot;form1()&quot;&gt;xhr之form请求&lt;/button&gt;
+
+    &lt;script&gt;
+        function form1() {
+
+            var xhr = new XMLHttpRequest()
+            // 初始化一个form对象
+            var form = new FormData()
+
+            form.append(&#39;name&#39;, &#39;小青年&#39;)
+            form.append(&#39;age&#39;, &#39;17&#39;)
+            form.append(&#39;fond&#39;, &#39;玩&#39;)
+            xhr.open(&#39;post&#39;, &#39;/test&#39;)
+            xhr.send(form)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText)
+                }
+            }
+        }
+    &lt;/script&gt;</code></pre>
+<blockquote>
+<p><code>index.js</code></p>
+</blockquote>
+<pre><code class="js">var express = require(&#39;express&#39;)
+var bodyParser = require(&#39;body-parser&#39;)
+var multer = require(&#39;multer&#39;)
+var web = express()
+var form = multer()
+web.use(express.static(&#39;public&#39;))
+web.use(bodyParser.urlencoded({extended:false}))
+// 如果使用的时FormData这种数据提交方式的话
+// 那么需要multer里面的array()方法进行数据剥离
+web.post(&#39;/test&#39;,form.array(),function(req,res){
+    name = req.body.name
+    age = req.body.age
+    fond = req.body.fond
+    res.send(&#39;姓名是&#39;+name + &quot;,年龄是&quot; + age + &#39;,爱好是&#39;+fond)
+})</code></pre>
+<h3 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h3><blockquote>
+<p><code>index.js</code> 源码参考(<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/fs" target="_blank" rel="noopener">https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/fs</a> “点击查看”)</p>
+</blockquote>
+<pre><code class="js">// 引入文件读写模块 系统默认包含fs模块 所以无需下载
+var fs = require(&#39;fs&#39;)
+
+var gameRoleInfo = {
+    name: &#39;芽衣&#39;,
+    level: &#39;20&#39;,
+    equipment: [&#39;村正&#39;, &#39;圣痕&#39;, &#39;大砍刀&#39;, &#39;高射炮&#39;, &#39;萝莉装&#39;, &#39;五速鞋&#39;],
+    blood: &#39;3500&#39;
+}
+// 将字典对象转化成字符串对象
+var gameRoleInfoString = JSON.stringify(gameRoleInfo)
+// writeFile后面跟三个值
+// 1.写入文件的路径
+// 2.写入的内容
+// 3.写入以后的回调函数
+fs.writeFile(&#39;data/game.txt&#39;,gameRoleInfoString,function(err){
+    if(err){
+        console.log(&#39;文件写入失败:&#39;,err)
+    }
+    else{
+        console.log(&#39;文件写入成功&#39;)
+    }
+})
+// readFile里面两个参数
+// 参数1.读取的文件路径
+// 参数2.读取文件以后的回调函数
+// 回调函数里面有两个参数
+// 参数1.读取失败以后的信息
+// 参数2.读取成功以后的信息
+fs.readFile(&#39;data/game.txt&#39;,function(err,data){
+    if(err){
+        console.log(&#39;读取失败&#39;,err)
+    }
+    else{
+        // JSON.parse 将字典格式的字符串转化为字典对象
+        // console.log(&#39;读取成功:&#39;+JSON.parse(data))
+        console.log(&#39;读取成功:&#39;)
+        console.log(JSON.parse(data))
+    }
+})</code></pre>
+<h3 id="小项目练习"><a href="#小项目练习" class="headerlink" title="小项目练习"></a>小项目练习</h3><blockquote>
+<p>小项目练习,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/8.30/%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/info" target="_blank" rel="noopener" title="点击查看">员工信息管理</a>,<a href="https://github.com/zysxm/Learning.github.io/tree/master/Python/9.03/messagebox" target="_blank" rel="noopener" title="点击查看">留言板</a></p>
+</blockquote>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF">前端</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/node.js">node.js</a>
+                
+                  <a class="hover-with-bg" href="/tags/html">html</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "node.js进阶&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

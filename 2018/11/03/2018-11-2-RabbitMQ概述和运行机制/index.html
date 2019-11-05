@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>RabbitMQ概述和运行机制(搬运整理) ~ zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 十一月 3日 2018, 3:00 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    2.5k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      9 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <!-- #  RabbitMQ概述和运行机制 -->
+
+<h1 id="RabbitMQ概述-搬运"><a href="#RabbitMQ概述-搬运" class="headerlink" title="RabbitMQ概述[搬运]"></a>RabbitMQ概述<code>[搬运]</code></h1><p><strong>RabbitMQ概述</strong>：RabbitMQ是使用最广泛的开源消息代理。RabbitMQ轻量级，易于在集群内部和云平台中部署。它支持多种消息传递协议。 它可以满足企业高规模，高可用性的要求。RabbitMQ使用Erlang语言开发的。</p>
+<a id="more"></a>
+
+<p><strong>MQ概述</strong>：全称为Message Queue, 消息队列（MQ）是一种应用程序对应用程序的通信方法。应用程序通过读写队列的消息（针对应用程序的数据）来通信，而无需专用连接来链接它们。<br><strong>MQ运行机制</strong>： P表示生产者，C表示消费者，红色部分为消息队列</p>
+<p><img src="https://box.kancloud.cn/a02211c868ca3192b4f7f8d9af4bbd7c_536x86.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="MQ实战场景："><a href="#MQ实战场景：" class="headerlink" title="MQ实战场景："></a>MQ实战场景：</h2><p>1.我们在双11的时候，当我们凌晨大量的秒杀和抢购商品，然后去结算的时候，就会发现，界面会提醒我们，让我们稍等，以及一些友好的图片文字提醒。而不是像前几年的时代，动不动就页面卡死，报错等来呈现给用户。在这个业务场景中，我们就可以采用队列的机制来处理，因为同时结算就只能达到这么多。</p>
+<p><img src="https://box.kancloud.cn/5534033654975dec4f1aa1f746452ee6_869x420.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://box.kancloud.cn/a642a8065db7f6b250bbd8ba04073ab0_680x344.jpg" srcset="/img/loading.gif" alt=""></p>
+<p>2.在我们平时的超市中购物也是一样，当我们在结算的时候，并不会一窝蜂一样涌入收银台，而是排队结算。这也是队列机制。一个接着一个的处理，不能插队。</p>
+<p><img src="https://box.kancloud.cn/0df7fc413ae1f796d04d0f6f052c3a11_1024x683.jpg" srcset="/img/loading.gif" alt=""></p>
+<hr>
+<p><strong>RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。</strong></p>
+<p>RabbitMQ是AMQP服务器的一种。<br><strong>AMQP简介</strong>：AMQP，即Advanced Message Queuing Protocol，<strong>高级消息队列协议</strong>，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。<br>它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，<strong>并不受产品、开发语言等条件的限制。</strong></p>
+<p>AMQP 里主要要说两个组件：Exchange 和 Queue （在 AMQP 1.0 里还会有变动），如下图所示，绿色的 X 就是 Exchange ，红色的是 Queue ，这两者都在 Server 端，又称作 Broker ，这部分是 RabbitMQ 实现的，而蓝色的则是客户端，通常有 Producer（生产者） 和 Consumer（消费者） 两种类型：<br><img src="https://box.kancloud.cn/d55ac336d3c298d60fcf5e26e6c6fdf1_600x450.png" srcset="/img/loading.gif" alt=""><br>Publisher<br>消息的生产者，也是一个向交换器发布消息的客户端应用程序。<br>Exchange<br>交换器，用来接收生产者发送的消息并将这些消息路由给服务器中的队列。<br>Queue<br>消息队列，用来保存消息直到发送给消费者。它是消息的容器，也是消息的终点。一个消息可投入一个或多个队列。消息一直在队列里面，等待消费者连接到这个队列将其取走。<br>Consumer<br>消息的消费者，表示一个从消息队列中取得消息的客户端应用程序。<br>Broker<br>表示消息队列服务器实体。</p>
+<p>RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。具体特点包括：</p>
+<ul>
+<li><p>可靠性（Reliability）<br>RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</p>
+</li>
+<li><p>灵活的路由（Flexible Routing）<br>在消息进入队列之前，通过 Exchange 来路由消息的。对于典型的路由功能，RabbitMQ 已经提供了一些内置的 Exchange 来实现。针对更复杂的路由功能，可以将多个 Exchange 绑定在一起，也通过插件机制实现自己的 Exchange 。</p>
+</li>
+<li><p>消息集群（Clustering）<br>多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 Broker 。</p>
+</li>
+<li><p>高可用（Highly Available Queues）<br>队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</p>
+</li>
+<li><p>多种协议（Multi-protocol）<br>RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。</p>
+</li>
+<li><p>多语言客户端（Many Clients）<br>RabbitMQ 几乎支持所有常用语言，比如 Java、.NET、Ruby 等等。</p>
+</li>
+<li><p>管理界面（Management UI）<br>RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息 Broker 的许多方面。</p>
+</li>
+<li><p>跟踪机制（Tracing）<br>如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</p>
+</li>
+<li><p>插件机制（Plugin System）<br>RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</p>
+</li>
+</ul>
+<h1 id="RabbitMQ-安装"><a href="#RabbitMQ-安装" class="headerlink" title="RabbitMQ 安装"></a>RabbitMQ 安装</h1><p>RabbitMQ是用erlang语言编写的，所以我们先安装erlang语言环境<br>配置erlang语言环境</p>
+<pre><code>vim /etc/yum.repos.d/rabbitmq-erlang.repo
+# 在rabbitmq-erlang.repo 文件中加入下面的代码
+[rabbitmq-erlang]
+name=rabbitmq-erlang
+baseurl=https://dl.bintray.com/rabbitmq/rpm/erlang/20/el/7
+gpgcheck=1
+gpgkey=https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
+enabled=1
+# 执行导入key
+rpm --import  https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
+# 安装erlang
+yum install erlang -y  #安装erlang
+</code></pre><p><strong>安装rabbitmq服务</strong></p>
+<p>下载rabbitmq  地址：<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="noopener">http://www.rabbitmq.com/download.html</a></p>
+<pre><code>wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.8/rabbitmq-server-3.7.8-1.el7.noarch.rpm
+
+yum install  rabbitmq-server-3.7.8-1.el7.noarch.rpm</code></pre><p>启用RabbitMQ的web插件 ，方便后期管理界面</p>
+<pre><code>rabbitmq-plugins enable rabbitmq_management
+</code></pre><pre><code>The following plugins have been configured:
+  rabbitmq_management
+  rabbitmq_management_agent
+  rabbitmq_web_dispatch
+Applying plugin configuration to rabbit@localhost...
+The following plugins have been enabled:
+  rabbitmq_management
+  rabbitmq_management_agent
+  rabbitmq_web_dispatch
+
+set 3 plugins.
+Offline change; changes will take effect at broker restart.</code></pre><p>设置开机启动</p>
+<pre><code>systemctl enable rabbitmq-server.service</code></pre><p>启动服务</p>
+<pre><code>systemctl start rabbitmq-server</code></pre><p>rabbitmq配置文件位置</p>
+<pre><code> ls /var/lib/rabbitmq/mnesia</code></pre><p>访问控制台<br>默认用户名和密码： guest/guest 。guest用户仅允许从在服务器以localhost或127.0.0.1作为ip登录</p>
+<p>如果远程登录，如：<a href="http://192.168.1.63:15672/" target="_blank" rel="noopener">http://192.168.1.63:15672/</a>, 则会提示错误，登录不了。</p>
+<p>为RabbitMQ创建用户并赋权。</p>
+<pre><code>rabbitmqctl add_user root 123456  #添加用户
+rabbitmqctl set_user_tags root administrator #设置用户权限为administrator</code></pre><p>到此，已经搭建成功。</p>
+<h1 id="RabbitMQ使用方法"><a href="#RabbitMQ使用方法" class="headerlink" title="RabbitMQ使用方法"></a>RabbitMQ使用方法</h1><p><strong>RabbitMQ查看相关的命令</strong></p>
+<pre><code> rabbitmqctl list_connections   #用于查看当前的连接
+rabbitmqctl list_queues   #会列出所有队列名称，后边可能还会带着这个队列当前消息数
+ rabbitmqctl status        #查看当前队列信息</code></pre><h2 id="RabbitMQ的vhost管理"><a href="#RabbitMQ的vhost管理" class="headerlink" title="RabbitMQ的vhost管理"></a>RabbitMQ的vhost管理</h2><p>当我们在创建用户时，会指定用户能访问一个虚拟机，并且该用户只能访问该虚拟机下的队列和交换机，如果没有指定，默认的是”/”;一个rabbitmq服务器上可以运行多个vhost，以便于适用不同的业务需要，这样做既可以满足权限配置的要求，也可以避免不同业务之间队列、交换机的命名冲突问题，因为不同vhost之间是隔离的。</p>
+<p>添加yang-web和yang-bbs两个虚拟机来管理网站和论坛的队列</p>
+<pre><code>rabbitmqctl add_vhost yang-web
+rabbitmqctl add_vhost yang-bbs</code></pre><p>查看创建的虚拟主机 网页查看</p>
+<p>删除bbs虚拟机</p>
+<pre><code>
+rabbitmqctl delete_vhost yang-bbs
+</code></pre><p>查看虚拟机列表</p>
+<pre><code>rabbitmqctl list_vhosts</code></pre><p><strong>“/”是rabbitmq默认的虚拟机，之前默认连接的都是它</strong></p>
+<h1 id="RabbitMQ管理用户、角色和权限管理"><a href="#RabbitMQ管理用户、角色和权限管理" class="headerlink" title="RabbitMQ管理用户、角色和权限管理"></a>RabbitMQ管理用户、角色和权限管理</h1><p>1、用户管理语法<br>添加用户：rabbitmqctl add_user {username} {password}<br>删除用户：rabbitmqctl delete_user {username}<br>修改密码：rabbitmqctl change_password {username} {newpassword} </p>
+<p>2、角色权限分配<br> 设置用户角色语法：rabbitmqctl set_user_tags {username} {tag}<br>RabbitMQ的tag用户角色分类：none、management、policymaker、monitoring、administrator<br>tag常用角色为：administrator, monitoring, management </p>
+<h3 id="RabbitMQ各类角色描述："><a href="#RabbitMQ各类角色描述：" class="headerlink" title="RabbitMQ各类角色描述："></a>RabbitMQ各类角色描述：</h3><p>（1）、none角色权限 ：不能访问 management plugin<br>（2）、management角色权限：<br>列出自己可以通过AMQP登入的virtual hosts<br>查看自己的virtual hosts中的queues, exchanges 和 bindings<br>查看和关闭自己的channels 和 connections<br>查看有关自己的virtual hosts的“全局”的统计信息，包含其他用户在这些virtual hosts中的活动。</p>
+<p>（3）、policymaker角色权限   #policymaker  [&#039;pɒləsɪmeɪkə(r)]  决策者<br>拥有management的所有权限，还拥有查看、创建和删除自己的virtual hosts所属的policies（策略）和parameters（[pəˈræmɪtə(r)] 参数 ）<br>（4）、monitoring 角色权限<br>拥有management的所有权限，还拥有：<br>列出所有virtual hosts，包括他们不能登录的virtual hosts<br>查看其他用户的connections和channels<br>查看节点级别的数据如clustering和memory使用情况<br>查看真正的关于所有virtual hosts的全局的统计信息<br>（5）、administrator角色权限<br>拥有policymaker和monitoring的所有权限，还拥有：<br>创建和删除virtual hosts<br>查看、创建和删除users<br>查看创建和删除permissions<br>关闭其他用户的connections</p>
+<p>TODO</p>
+<h1 id="使用python调用rabbitmq服务器"><a href="#使用python调用rabbitmq服务器" class="headerlink" title="使用python调用rabbitmq服务器"></a>使用python调用rabbitmq服务器</h1><p>pip install pika    #安装pika模块。python用pika模块调用rabbitmq。<br><strong>注：</strong> rabbitmq本质是一个生产者和消费者的模型结构。生产者-&gt;rabbitmq-&gt;消费者，即生产者产生消息，给到rabbitmq存储，消费者从rabbitmq中读取数据。</p>
+<p>创建生产者代码send.py </p>
+<pre><code>import pika
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(
+        host=&amp;#039;localhost&amp;#039;))
+channel = connection.channel()
+channel.queue_declare(queue=&amp;#039;hello&amp;#039;)
+
+channel.basic_publish(exchange=&amp;#039;&amp;#039;,
+                      routing_key=&amp;#039;hello&amp;#039;,
+                      body=&amp;#039;Hello World!&amp;#039;)
+print(&amp;quot; [x] Sent &amp;#039;Hello World!&amp;#039;&amp;quot;)
+connection.close()
+
+注：declare  [dɪˈkleə(r)]  声明  ； consuming [kənˈsju:mɪŋ]  消费；publish  [ˈpʌblɪʃ]  颁布</code></pre><p>创建消耗者代码receive.py </p>
+<pre><code>import pika
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(
+        host=&amp;#039;localhost&amp;#039;))
+channel = connection.channel()
+
+channel.queue_declare(queue=&amp;#039;hello&amp;#039;)
+
+def callback(ch, method, properties, body):
+    print(&amp;quot; [x] Received %r&amp;quot; % body)
+
+channel.basic_consume(callback,
+                      queue=&amp;#039;hello&amp;#039;,
+                      no_ack=True)
+
+print(&amp;#039; [*] Waiting for messages. To exit press CTRL+C&amp;#039;)
+channel.start_consuming()
+</code></pre><h2 id="开始测试队列"><a href="#开始测试队列" class="headerlink" title="开始测试队列"></a>开始测试队列</h2><p>python send.py   #此命令执行两次，产生两个名字叫hello的消息<br>rabbitmqctl list_queues  #查看消息队列为2</p>
+<p>在web界面查看消息队列，发现在2个消息队列等待处理：<br> python receive.py   #消费或处理这2个消息<br>rabbitmqctl list_queues   #查看队列，已经为0<br>在web界面，查看队列，也为0了</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/web">web</a>
+                
+                  <a class="hover-with-bg" href="/tags/linux">linux</a>
+                
+                  <a class="hover-with-bg" href="/tags/MQ">MQ</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "RabbitMQ概述和运行机制(搬运整理)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

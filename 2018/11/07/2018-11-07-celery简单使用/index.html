@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>celery简单使用(搬运整理) ~ zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 十一月 7日 2018, 11:00 上午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    3.7k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      14 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+</blockquote>
+<h1 id="Celery"><a href="#Celery" class="headerlink" title="Celery"></a>Celery</h1><p>Celery是一个基于Python开发的分布式异步消息队列，可以轻松实现任务的异步处理。它的基本工作就是管理分配任务到不同的服务器，并且取得结果。至于说服务器之间是如何进行通信的？这个Celery本身不能解决。</p>
+<a id="more"></a>
+
+<p>Celery在执行任务时需要一个消息中间件来接收和发送任务消息，以及存储任务结果，一般使用RabbitMQ 或 Redis，我们这里只讨论Celery+RabbitMQ，其他的组合方式可以查阅更多资料。</p>
+<p>RabbitMQ是一个由Erlang语言开发的AMQP的开源实现。AMQP即Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
+<p>在Celery+RabbitMQ组合中，RabbitMQ作为一个消息队列管理工具被引入到和Celery集成，负责处理服务器之间的通信任务。</p>
+<p>那么有一个疑问：RabbitMQ作为消息管理系统已经可以实现异步的发送消息，为什么还要使用Celery?</p>
+<p>Celery相当于包装了一个现成的系统，可以方便的在项目中操作RabbitMQ这个消息队列介质，减少在RabbitMQ上编写脚本的任务。最直接的例子就是在Celery Python里，只需要config一下settings，然后就可以用decorator轻松使用消息队列，而不用在RabbitMQ上编写复杂的脚本。</p>
+<p>当然，Celery也支持和Redis、MongoDB之类的组合，原因是RabbitMQ尽管足够强大，但对于一些相对简单的业务环境来说可能太多（复杂）了一些。</p>
+<!-- more -->
+
+<h1 id="Celery-RabbitMQ是如何工作的？"><a href="#Celery-RabbitMQ是如何工作的？" class="headerlink" title="Celery+RabbitMQ是如何工作的？"></a>Celery+RabbitMQ是如何工作的？</h1><p>关于Celery和RabbitMQ的协作方式，可以通过工作上的一些案例来说明：</p>
+<p>假设A公司最近在开下年度工作会议，会议上要确定下一年的工作内容和计划，参会人员有老板（下发任务者）、部门主管（Celery分配任务者）、部门员工（工作者）、老板秘书（沟通协调者RabbitMQ）。</p>
+<p>那么这场会议首先需要确定的是下一年的具体工作内容，这里就称之为“任务内容”。比如老板说我们下一年要开发出一款社交类APP产品，部门主管表示赞同，于是便愉快地定下了具体的工作任务（task），当然开发一款社交类APP产品是这个项目的总任务，其中可以细分成很多小的任务，比如业务流程是怎么样的？界面怎么设计等。</p>
+<p>在确定了具体工作任务后，老板便把这个项目交给了部门主管（Celery），部门主管确定部门员工中谁去完成这项任务，于是指定某个人（Worker），也可以多个人。 </p>
+<p>发布工作任务的人是老板（下发任务者），他指定了部门主管（Celery）什么时候去完成哪些任务，并要求获取反馈信息。但有一点需要注意，老板只管布置任务，不参与具体的任务分配，这个任务分配的工作是交给部门主管（Celery）去执行。 </p>
+<p>项目之初，老板（下发任务者）通过公司会议将任务传递给部门主管（Celery），部门主管通过部门会议将任务分配给员工（Worker），过段时间再将任务结果反馈给老板。然而随着任务越来越多，部门主管发现任务太多，每个任务都要反馈结果，记不住，也容易弄乱，导致效率下降。 </p>
+<p>在召开会议商量了一番后，老板秘书（沟通协调者RabbitMQ）站起来说：“我有个提议，老板每天将布置的任务写成一张纸条放到我这，然后部门主管每天早上来取并交给员工，至于纸条上的任务如何分配，部门主管决定就行，但是要将结果同样写一张纸条反馈给我，我再交给老板。这样老板只负责下发任务，我只负责保管任务纸条，部门主管只负责分配任务并获取反馈，员工只负责按任务工作。大家职责都很明确，效率肯定会更高。”至此，老板与员工的沟通问题也解决了。</p>
+<h1 id="Celery介绍和基本使用"><a href="#Celery介绍和基本使用" class="headerlink" title="Celery介绍和基本使用"></a>Celery介绍和基本使用</h1><p>Celery是一个基于Python开发的分布式异步消息任务队列，它简单、灵活、可靠，是一个专注于实时处理的任务队列，同时也支持任务调度。通过它可以轻松的实现任务的异步处理，如果你的业务场景中需要用到异步任务，就可以考虑使用Celery。举几个适用场景：</p>
+<p>1）可以在 Request-Response 循环之外执行的操作：发送邮件、推送消息。</p>
+<p>2）耗时的操作：调用第三方 API、视频处理（前端通过 AJAX 展示进度和结果）。</p>
+<p>3）周期性任务：取代 crontab。</p>
+<h2 id="Celery有以下几个优点"><a href="#Celery有以下几个优点" class="headerlink" title="Celery有以下几个优点"></a>Celery有以下几个优点</h2><p>简单：一旦熟悉了Celery的工作流程后，配置和使用是比较简单的。</p>
+<p>高可用：当任务执行失败或执行过程中发生连接中断，Celery 会自动尝试重新执行任务。</p>
+<p>快速：一个单进程的Celery每分钟可处理上百万个任务。</p>
+<p>灵活： Celery的大部分组件都可以被扩展及自定制。</p>
+<h1 id="选择Broker"><a href="#选择Broker" class="headerlink" title="选择Broker"></a>选择Broker</h1><p>Celery的基本架构和工作流程如下图<br><img src="https://box.kancloud.cn/5d8cf93818f7bc7ad2c04306c4221354_1000x115.png" srcset="/img/loading.gif" alt=""></p>
+<p>常用的Broker有RabbitMQ、Redis、数据库等，我们这里使用的是RabbitMQ</p>
+<p><img src="https://box.kancloud.cn/155ab4d48f8625d34409f0f6a7e8da72_1000x768.png" srcset="/img/loading.gif" alt=""></p>
+<h1 id="Celery安装使用"><a href="#Celery安装使用" class="headerlink" title="Celery安装使用"></a>Celery安装使用</h1><p>Celery是一个Python的应用，而且已经上传到了PyPi，所以可以使用pip或easy_install安装：</p>
+<pre><code>pip install celery
+pip install eventlet</code></pre><h1 id="创建Application和Task"><a href="#创建Application和Task" class="headerlink" title="创建Application和Task"></a>创建Application和Task</h1><p>Celery的默认broker是RabbitMQ，仅需配置一行就可以：</p>
+<pre><code>broker_url = &amp;#039;amqp://guest:guest@localhost:5672//&amp;#039;</code></pre><p>创建一个Celery Application用来定义任务列表。<br>实例化一个Celery对象app，然后通过@app.task 装饰器注册一个 task。任务文件就叫tasks.py：</p>
+<pre><code>from celery import Celery
+
+app = Celery(__name__, broker=&amp;#039;amqp://guest:guest@localhost:5672//&amp;#039;)
+
+@app.task
+
+def add(x, y):   
+
+        return x + y</code></pre><h1 id="运行-worker，启动Celery-Worker来开始监听并执行任务"><a href="#运行-worker，启动Celery-Worker来开始监听并执行任务" class="headerlink" title="运行 worker，启动Celery Worker来开始监听并执行任务"></a>运行 worker，启动Celery Worker来开始监听并执行任务</h1><p>在 tasks.py 文件所在目录运行</p>
+<pre><code>celery worker -A tasks.app -l INFO  -P eventlet</code></pre><p>这个命令会开启一个在前台运行的 worker，解释这个命令的意义：</p>
+<p>worker: 运行 worker 模块。</p>
+<p>-A: –app=APP, 指定使用的 Celery 实例。</p>
+<p>-l: –loglevel=INFO, 指定日志级别，可选：DEBUG, INFO, WARNING, ERROR, CRITICAL, FATAL</p>
+<p>其它常用的选项：</p>
+<p>-P: –pool=prefork, 并发模型，可选：prefork (默认，multiprocessing), eventlet, gevent, threads.</p>
+<p>-c: –concurrency=10, 并发级别，prefork 模型下就是子进程数量，默认等于 CPU 核心数</p>
+<p>完整的命令行选项可以这样查看：</p>
+<pre><code>celery worker --help</code></pre><h1 id="调用Task"><a href="#调用Task" class="headerlink" title="调用Task"></a>调用Task</h1><p>再打开一个终端， 进行命令行模式，调用任务</p>
+<pre><code>from tasks import add
+
+add.delay(1,2)
+
+add.apply_async(args=(1,2))</code></pre><p>上面两种调用方式等价，delay() 方法是 apply_async() 方法的简写。这个调用会把 add 操作放入到队列里，然后立即返回一个 AsyncResult 对象。如果关心处理结果，需要给 app 配置 CELERY_RESULT_BACKEND，指定一个存储后端保存任务的返回值。</p>
+<h1 id="在项目中的简单使用流程"><a href="#在项目中的简单使用流程" class="headerlink" title="在项目中的简单使用流程"></a>在项目中的简单使用流程</h1><p>1）RabbitMQ所在服务器，启动crontab设置  crontable -user user -e设置定时执行celery application应用。</p>
+<pre><code>python tasks.py day </code></pre><p>在task.py文件里面启动一个叫做app的Celery Application，编写一个app.task函数来produce 任务到rabbitmq。</p>
+<pre><code>app = Celery()
+
+app.config_from_object(celeryconfig)</code></pre><p>在每个worker里面通过命令启动worker消费任务</p>
+<pre><code>celery worker -A tasks.app -l INFO  -P eventlet</code></pre><h1 id="Celery介绍和基本使用-1"><a href="#Celery介绍和基本使用-1" class="headerlink" title="Celery介绍和基本使用"></a>Celery介绍和基本使用</h1><p><strong>需求场景</strong></p>
+<ol>
+<li><p>对100台命令执行一条批量命令，命令执行需要很长时间，但是不想让主程序等着结果返回，而是给主程序返回一个任务ID，task_id<br>主程序过一段时间根据task_id，获取执行结果即可，再命令执行期间，主程序 可以继续做其他事情</p>
+</li>
+<li><p>定时任务，比如每天检测一下所有的客户资料，发现是客户的生日，发个祝福短信</p>
+</li>
+</ol>
+<p><strong>解决方案</strong></p>
+<ol>
+<li>逻辑view 中启一个进程</li>
+</ol>
+<p>父进程结束，子进程跟着结束，子进程任务没有完成，不符合需求</p>
+<p>父进程结束，等着子进程结束，父进程需等着结果返回，不符合需求</p>
+<p>小结：该方案解决不了阻塞问题，即需要等待 </p>
+<ol start="2">
+<li>启动 subprocess，任务托管给操作系统执行</li>
+</ol>
+<p>实现task_id，实现异步，解决阻塞</p>
+<p>小结：大批量高并发，主服务器会出现问题，解决不了并发</p>
+<ol start="3">
+<li>celery</li>
+</ol>
+<p>celery提供多子节点，解决并发问题</p>
+<h2 id="celery介绍"><a href="#celery介绍" class="headerlink" title="celery介绍"></a>celery介绍</h2><p>celery是一个基于python开发的分布式异步消息队列，轻松实现任务的异步处理</p>
+<p>celery在执行任务时需要一个消息中间件来接收和发送任务消息，以及存储任务结果，一般使用RabbitMQ 或 Redis</p>
+<h2 id="celery优点"><a href="#celery优点" class="headerlink" title="celery优点"></a>celery优点</h2><p>简单：熟悉celery的工作流程后，配置使用简单</p>
+<p>高可用：当任务执行失败或执行过程中发生连接中断，celery会自动尝试重新执行任务</p>
+<p>快速：一个单进程的celery每分钟可处理上百万个任务</p>
+<p>灵活：几乎celery的各个组件都可以被扩展及自定制</p>
+<h2 id="celery基本工作流程"><a href="#celery基本工作流程" class="headerlink" title="celery基本工作流程"></a>celery基本工作流程</h2><p><img src="https://box.kancloud.cn/32d19c7420eb9c8c072f1b38ff0f8e41_670x319.png" srcset="/img/loading.gif" alt=""><br>其中中间队列用于分配任务以及存储执行结果</p>
+<h2 id="celery安装及使用"><a href="#celery安装及使用" class="headerlink" title="celery安装及使用"></a>celery安装及使用</h2><ol>
+<li><p>安装python模块</p>
+<pre><code>pip3 install celery
+pip3 install redis</code></pre></li>
+<li><p>安装redis服务</p>
+<pre><code>wget  http://download.redis.io/releases/redis-3.2.8.tar.gz
+tar -zxvf redis-3.2.8.tar.gz
+cd redis-3.2.8
+make
+</code></pre></li>
+</ol>
+<p>src/redis-server  # 启动redis 服务</p>
+<pre><code>3.  创建一个celery application 用来定义任务列表
+创建一个任务 tasks.py</code></pre><p>from celery import Celery</p>
+<p>app = Celery(&#039;TASK&#039;,<br>             broker=&#039;amqp://guest：guest@localhost:5672//&#039;,<br>             backend=&#039;redis://localhost&#039;)</p>
+<p>@app.task<br>def add(x,y):<br>    print(&quot;running…&quot;,x,y)<br>    return x+y</p>
+<pre><code>
+ 4.  启动celery worker 来开始监听并执行任务</code></pre><p> celery -A tasks worker –loglevel=info</p>
+<pre><code>
+tasks 任务文件名，worker 任务角色，--loglevel=info 任务日志级别
+
+5.  调用任务
+打开另外终端，进入命令行模式，调用任务
+
+![](https://box.kancloud.cn/ccf1e9529cc2e20728b3e0ab1c6baa08_573x167.png)
+
+6.  celery常用接口
+* tasks.add(4,6) ---&amp;gt; 本地执行
+
+* tasks.add.delay(3,4) --&amp;gt; worker执行
+
+* t=tasks.add.delay(3,4)  --&amp;gt; t.get()  获取结果，或卡住，阻塞
+
+* t.ready()---&amp;gt; False：未执行完，True：已执行完
+
+* t.get(propagate=False) 抛出简单异常，但程序不会停止
+
+* t.traceback 追踪完整异常
+
+# 项目中使用Celery
+## 1.  项目目录结构</code></pre><p>project<br>    |– <strong>init</strong>.py<br>    |– celery.py   # 配置文档<br>    |– tasks.py    # 任务函数<br>    |– tasks2.py   # 任务函数</p>
+<pre><code>
+## 2.  项目文件
+project/celery.py</code></pre><h1 id="from-celery-import-Celery-默认当前路径，更改为绝对路径-当前路径有个celery-py文件啦"><a href="#from-celery-import-Celery-默认当前路径，更改为绝对路径-当前路径有个celery-py文件啦" class="headerlink" title="from celery import Celery 默认当前路径，更改为绝对路径(当前路径有个celery.py文件啦)"></a>from celery import Celery 默认当前路径，更改为绝对路径(当前路径有个celery.py文件啦)</h1><p>from celery import Celery</p>
+<p>app = Celery(&#039;project&#039;,<br>             broker=&#039;redis://localhost&#039;,<br>             backend=&#039;redis://localhost&#039;,<br>             include=[&#039;project.tasks&#039;,&#039;project.tasks2&#039;])  # 配置文件和任务文件分开了，可以写多个任务文件</p>
+<h1 id="app-扩展配置"><a href="#app-扩展配置" class="headerlink" title="app 扩展配置"></a>app 扩展配置</h1><p>app.conf.update(<br>    result_expires=3600,<br>)</p>
+<p>if <strong>name</strong> == &#039;<strong>main</strong>&#039;:<br>    app.start()</p>
+<pre><code>celery.py作用相当于配置文件
+
+project/tasks.py</code></pre><p>from .celery import app</p>
+<p>@app.task<br>def add(x, y):<br>    return x + y</p>
+<p>@app.task<br>def mul(x, y):<br>    return x * y</p>
+<pre><code>
+project/tasks.py</code></pre><p>from .celery import app</p>
+<p>@app.task<br>def hello():<br>    return &#039;Hello World&#039;</p>
+<pre><code>
+3.  启动项目worker</code></pre><p>celery -A project worker -l info</p>
+<pre><code>
+另启终端，与project同目录进入python3
+![](https://box.kancloud.cn/4abe47350dd74f51919d94120f8a98b4_585x245.png)
+
+4.  实现分布式 
+当启动多个时 celery -A project worker -l info，去broker去相应任务，实现分布式
+
+5.  后台启动woker</code></pre><p>celery multi start w1 -A project -l info<br>celery multi start w2 -A project -l info<br>celery multi start w3 -A project -l info</p>
+<p>celery multi restart w1 -A project -l info<br>celery multi stop w1 w2 w3        # 任务立刻停止<br>celery multi stopwait w1 w2 w3    # 任务执行完，停止</p>
+<pre><code>
+#  Celery定时任务
+
+celery支持定时任务，设定好任务的执行时间，celery就会定时帮你执行，这个定时任务模块叫 celery beat
+
+项目目录结构</code></pre><p>project<br>    |– <strong>init</strong>.py<br>    |– celery.py          # 配置文件<br>    |– periodic_task.py   # 定时任务文件</p>
+<pre><code>脚本celery.py</code></pre><p>from celery import Celery</p>
+<p>app = Celery(&#039;project&#039;,<br>             broker=&#039;redis://localhost&#039;,<br>             backend=&#039;redis://localhost&#039;,<br>             include=[&#039;project.periodic_task&#039;,])</p>
+<p>app.conf.update(<br>    result_expires=3600,<br>)</p>
+<p>if <strong>name</strong> == &#039;<strong>main</strong>&#039;:<br>    app.start()</p>
+<pre><code>脚本periodic_task.py
+</code></pre><p>from .celery import app<br>from celery.schedules import crontab</p>
+<p>@app.on_after_configure.connect<br>def setup_periodic_tasks(sender, **kwargs):<br>    # 每10s调用 test(&#039;hello&#039;)<br>    sender.add_periodic_task(10.0, test.s(&#039;hello&#039;), name=&#039;add every 10&#039;)</p>
+<pre><code># 每20s调用 test(&amp;#039;world&amp;#039;)
+sender.add_periodic_task(20.0, test.s(&amp;#039;world&amp;#039;), expires=10)
+
+# 每周一早上7:30 执行 test(&amp;#039;Happy Mondays!&amp;#039;)
+sender.add_periodic_task(
+    crontab(hour=7, minute=30, day_of_week=1), # 可灵活修改
+    test.s(&amp;#039;Happy Mondays!&amp;#039;),
+)</code></pre><p>@app.task<br>def test(arg):<br>    print(arg)</p>
+<pre><code>启动角色 worker  执行任务</code></pre><p>celery -A project worker -l info</p>
+<pre><code>
+启动角色 beat 将定时任务放到队列中</code></pre><p>celery -A  project.periodic_task  beat  -l  debug</p>
+<pre><code>
+也可以在配置文件celery.py 里添加定时任务</code></pre><p>app.conf.beat_schedule = {<br>    &#039;add-every-30-seconds&#039;: {<br>        &#039;task&#039;: &#039;project.tasks.add&#039;,<br>        &#039;schedule&#039;: 30.0,<br>        &#039;args&#039;: (16, 16)<br>    },<br>}<br>app.conf.timezone = &#039;UTC&#039;</p>
+<pre><code>
+
+# Celery与Django结合
+</code></pre><p>LearnCelery<br>   |– app1<br>        |– tasks.py<br>        |– models.py<br>   |– app2<br>        |– tasks.py<br>        |– models.py<br>   |– LearnCelery<br>        |– <strong>init</strong>.py<br>        |– celery.py<br>        |– settings.py</p>
+<pre><code>
+脚本代码
+LearnCelery/app/tasks.py   # 必须叫这个名字</code></pre><p>from celery import shared_task<br>import time</p>
+<h1 id="所有的app都可以调用"><a href="#所有的app都可以调用" class="headerlink" title="所有的app都可以调用"></a>所有的app都可以调用</h1><p>@shared_task<br>def add(x, y):<br>    time.sleep(10)<br>    return x + y</p>
+<p>@shared_task<br>def mul(x, y):<br>    time.sleep(10)<br>    return x * y</p>
+<pre><code>
+LearnCelery/LearnCelery/__init__.py</code></pre><h1 id="This-will-make-sure-the-app-is-always-imported-when"><a href="#This-will-make-sure-the-app-is-always-imported-when" class="headerlink" title="This will make sure the app is always imported when"></a>This will make sure the app is always imported when</h1><h1 id="Django-starts-so-that-shared-task-will-use-this-app"><a href="#Django-starts-so-that-shared-task-will-use-this-app" class="headerlink" title="Django starts so that shared_task will use this app."></a>Django starts so that shared_task will use this app.</h1><p>from .celery import app as celery_app</p>
+<p><strong>all</strong> = [&#039;celery_app&#039;]</p>
+<pre><code>
+LearnCelery/LearnCelery/celery.py
+</code></pre><p>import os<br>from celery import Celery</p>
+<h1 id="单独脚本调用Django内容时，需配置脚本的环境变量"><a href="#单独脚本调用Django内容时，需配置脚本的环境变量" class="headerlink" title="单独脚本调用Django内容时，需配置脚本的环境变量"></a>单独脚本调用Django内容时，需配置脚本的环境变量</h1><p>os.environ.setdefault(&#039;DJANGO_SETTINGS_MODULE&#039;, &#039;mysite.settings&#039;)</p>
+<p>app = Celery(&#039;mysite&#039;)</p>
+<h1 id="CELERY-作为前缀，在settings中写配置"><a href="#CELERY-作为前缀，在settings中写配置" class="headerlink" title="CELERY_ 作为前缀，在settings中写配置"></a>CELERY_ 作为前缀，在settings中写配置</h1><p>app.config_from_object(&#039;django.conf:settings&#039;, namespace=&#039;CELERY&#039;)</p>
+<h1 id="到Django各个app下，自动发现tasks-py-任务脚本"><a href="#到Django各个app下，自动发现tasks-py-任务脚本" class="headerlink" title="到Django各个app下，自动发现tasks.py 任务脚本"></a>到Django各个app下，自动发现tasks.py 任务脚本</h1><p>app.autodiscover_tasks()</p>
+<p>@app.task(bind=True)<br>def debug_task(self):<br>    print(&#039;Request: {0!r}&#039;.format(self.request))</p>
+<pre><code>
+LearnCelery/LearnCelery/settings.py</code></pre><h1 id="For-celery"><a href="#For-celery" class="headerlink" title="For celery"></a>For celery</h1><p>CELERY_BROKER_URL = &#039;redis://localhost&#039;<br>CELERY_RESULT_BACKEND = &#039;redis://localhost&#039;</p>
+<pre><code>
+3.  启动celery</code></pre><p>celery -A LearnCelery worker -l debug</p>
+<pre><code>
+4.  urls.py 视图处理</code></pre><p>urlpatterns = [<br>    url(r&#039;^celery_call/$&#039;, views.celery_call),<br>    url(r&#039;^celery_res/$&#039;, views.celery_res),<br>]</p>
+<pre><code>
+# django中使用计划任务
+
+1.  安装插件</code></pre><p>pip3 install django-celery-beat</p>
+<pre><code>
+2.  修改配置 settings.py</code></pre><p>INSTALLED_APPS = [<br> &#039;django_celery_beat&#039;,<br>]</p>
+<pre><code>3.数据库迁移</code></pre><p>python manage.py migrate</p>
+<pre><code>4.  启动 celery beat</code></pre><p>celery -A LearnCelery beat -l info -S django</p>
+<p>```<br>定时任务存到数据库里，启动beat定时取任务放到队列里执行</p>
+<ol start="5">
+<li>admin管理<br><img src="https://box.kancloud.cn/33d360707ed8e3019c407402435e8eac_875x323.png" srcset="/img/loading.gif" alt=""></li>
+</ol>
+<p><img src="https://box.kancloud.cn/b884ec26e2cd1c98d8bf5c480e91a478_1680x1594.png" srcset="/img/loading.gif" alt=""></p>
+<p>此时启动你的celery beat 和worker，会发现每隔2分钟，beat会发起一个任务消息让worker执行scp_task任务</p>
+<p>注意，经测试，每添加或修改一个任务，celery beat都需要重启一次，要不然新的配置不会被celery beat进程读到</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/web">web</a>
+                
+                  <a class="hover-with-bg" href="/tags/linux">linux</a>
+                
+                  <a class="hover-with-bg" href="/tags/MQ">MQ</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "celery简单使用(搬运整理)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

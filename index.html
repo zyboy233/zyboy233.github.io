@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/" target="_self">
+          <img src="https://tic0ka.bl.files.1drv.com/y4mbdIH3Gj-M7N7etjRZqA75bZyybqnqi5dyFY8lB65hgtz3O7NdOApM1-mCe5r5xv2ukaC6xQj84xyhbAVOqdmgpjsHXTlvss0o15LGWYkQEPDlZY5bhKb7jRe8KYdwDhfb54avYtOjTrSKIBy9_Vy61N8bjlCEk6LHfH3wPBBaVfF3gbCVyLl4rsNzsHmSEKqPciXYXATO7dGaN6T8kAMog?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="GitHub提速" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/">
+        <p class="h4 index-header">GitHub提速</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+自从微软收购GitHub以来，GitHub仓库同步速度抽风减少。但是从昨天开始到现在GitHub仓库同步变得巨慢，联系中美贸易战以及最近的微软发布遵守美国法律的新闻消息等等，大家都懂，看来GitHub分发服务器DNS污染严重。那咱也不能放弃，那咱们就hosts文件直接解析域名指向ip地址绕过国内DNS解析。
+
+
+https://www.ipaddress.com
+查询下面3个网址的IP
+
+    a. github.com
+    b. assets-cdn.github.com
+    c. github.global.ssl.fastly.net</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-04&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/DNS">DNS</a>&nbsp;
+          
+            <a href="/tags/GitHub">GitHub</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" target="_self">
+          <img src="https://wknvxw.bl.files.1drv.com/y4mn6SbFesCwA6ZQ4QraAG5c1P9avZ7soSzzf3LycnlT7WrdWtJUq9MNaZynkY2JXAKZANMrOwaqwZagUuleMyClqhQf2IVHVP8JaygkE1h2Qz_452n-veMowkRpKxH3PMcAo-4PuFGgrQdAI_eU2sgbFWMfUKUycSjci6zznHZpJoHkv1onpaBh0XTymesO5CzuTtB-x1-GRzNtnruQ6DA2Q?width=2496&height=1346&cropmode=none" srcset="/img/loading.gif" alt="SS服务器部署" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/">
+        <p class="h4 index-header">SS服务器部署</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+你好啊
+
+
+太长了，我决定鸽😮
+
+
+Building。。。
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-05&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/linux">linux</a>&nbsp;
+          
+            <a href="/tags/ss">ss</a>&nbsp;
+          
+            <a href="/tags/vultr">vultr</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="https://s4ergw.bl.files.1drv.com/y4mpAtuNxRP0yVWZyjJ3f_tCqaYcmCVscRuMjqsJP1k2uZ-bGtotSI3Qp1w2L9-LK-gPgI9x_nriiUe1uOZNoMa99czhcDNO00qCTzT0TUO-bulmUQua7-iZknsXhyqJpwsh-g8-EWTcWf-x4ijNpUcHMTxW5yqWxNmfFVbV9uZHLymhr0mwf7wQpuxAM39ISkLOTN4PaEYZMcShpO0___Rew?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="celery简单使用(搬运整理)" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+        <p class="h4 index-header">celery简单使用(搬运整理)</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">
+
+CeleryCelery是一个基于Python开发的分布式异步消息队列，可以轻松实现任务的异步处理。它的基本工作就是管理分配任务到不同的服务器，并且取得结果。至于说服务器之间是如何进行通信的？这个Celery本身不能解决。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-11-07&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/linux">linux</a>&nbsp;
+          
+            <a href="/tags/MQ">MQ</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" target="_self">
+          <img src="https://s4ergw.bl.files.1drv.com/y4mpAtuNxRP0yVWZyjJ3f_tCqaYcmCVscRuMjqsJP1k2uZ-bGtotSI3Qp1w2L9-LK-gPgI9x_nriiUe1uOZNoMa99czhcDNO00qCTzT0TUO-bulmUQua7-iZknsXhyqJpwsh-g8-EWTcWf-x4ijNpUcHMTxW5yqWxNmfFVbV9uZHLymhr0mwf7wQpuxAM39ISkLOTN4PaEYZMcShpO0___Rew?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="Redis基本命令(更新)" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+        <p class="h4 index-header">Redis基本命令(更新)</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">Redis 是一个速度非常快的非关系型数据库，使用内存作为主存储，内存中的数据也可以被持久化到硬盘。Redis以键值对形式(key-value)存储数据，其中值可以分为以下5中类型：
+
+字符串(string)
+列表(list)
+哈希(hash)
+集合(set)
+有序集合(zset)
+key
+...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-11-06&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/redis">redis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/" target="_self">
+          <img src="https://box.kancloud.cn/0dfbb61885d91b32807858d2ea66e669_1584x709.png" srcset="/img/loading.gif" alt="rabbitMQ多个接收端消费信息(搬运整理)" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/">
+        <p class="h4 index-header">rabbitMQ多个接收端消费信息(搬运整理)</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">循环分发启动一个发送端往队列发消息，此时启动多个接收端。发送的消息会对接收端一个一个挨着发送消息。
+这就是默认情况下，多个接收端轮流消费消息。队列发送给消费端后，就立即删除。那么问题来了，当某个消费者在处理消息的时候，异常终止了怎么办？此时，我们更希望这样：若是那个消费者挂掉了，消息自动转给另一个消费者处理。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-11-05&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/linux">linux</a>&nbsp;
+          
+            <a href="/tags/MQ">MQ</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" target="_self">
+          <img src="https://box.kancloud.cn/0df7fc413ae1f796d04d0f6f052c3a11_1024x683.jpg" srcset="/img/loading.gif" alt="RabbitMQ概述和运行机制(搬运整理)" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/">
+        <p class="h4 index-header">RabbitMQ概述和运行机制(搬运整理)</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">
+
+RabbitMQ概述[搬运]RabbitMQ概述：RabbitMQ是使用最广泛的开源消息代理。RabbitMQ轻量级，易于在集群内部和云平台中部署。它支持多种消息传递协议。 它可以满足企业高规模，高可用性的要求。RabbitMQ使用Erlang语言开发的。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-11-03&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/linux">linux</a>&nbsp;
+          
+            <a href="/tags/MQ">MQ</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/" target="_self">
+          <img src="https://s4ergw.bl.files.1drv.com/y4mpAtuNxRP0yVWZyjJ3f_tCqaYcmCVscRuMjqsJP1k2uZ-bGtotSI3Qp1w2L9-LK-gPgI9x_nriiUe1uOZNoMa99czhcDNO00qCTzT0TUO-bulmUQua7-iZknsXhyqJpwsh-g8-EWTcWf-x4ijNpUcHMTxW5yqWxNmfFVbV9uZHLymhr0mwf7wQpuxAM39ISkLOTN4PaEYZMcShpO0___Rew?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="Centos 7 下部署Django + uWSGI + Nginx" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/">
+        <p class="h4 index-header">Centos 7 下部署Django + uWSGI + Nginx</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">
+
+环境：Python: 3.6
+Django: 2.1
+OS: CentOS 7 x86_64
+uwsgi: 2.0.17...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-16&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/Django">Django</a>&nbsp;
+          
+            <a href="/tags/nginx">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" target="_self">
+          <img src="https://s4ergw.bl.files.1drv.com/y4mpAtuNxRP0yVWZyjJ3f_tCqaYcmCVscRuMjqsJP1k2uZ-bGtotSI3Qp1w2L9-LK-gPgI9x_nriiUe1uOZNoMa99czhcDNO00qCTzT0TUO-bulmUQua7-iZknsXhyqJpwsh-g8-EWTcWf-x4ijNpUcHMTxW5yqWxNmfFVbV9uZHLymhr0mwf7wQpuxAM39ISkLOTN4PaEYZMcShpO0___Rew?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="编码规范" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
+        <p class="h4 index-header">编码规范</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">PEP8规范（一） 代码的编排1、 缩进。每行需要4个空格的缩进，不要使用Tap键，更不能混合使用Tap键和空格。2 、每行最大长度79，换行可以使用反斜杠，但最好使用圆括号。换行点要在操作符的后边敲回车。3 、类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-09-04&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/Django">Django</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="https://s4ergw.bl.files.1drv.com/y4mpAtuNxRP0yVWZyjJ3f_tCqaYcmCVscRuMjqsJP1k2uZ-bGtotSI3Qp1w2L9-LK-gPgI9x_nriiUe1uOZNoMa99czhcDNO00qCTzT0TUO-bulmUQua7-iZknsXhyqJpwsh-g8-EWTcWf-x4ijNpUcHMTxW5yqWxNmfFVbV9uZHLymhr0mwf7wQpuxAM39ISkLOTN4PaEYZMcShpO0___Rew?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="Django使用" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/">
+        <p class="h4 index-header">Django使用</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">
+本篇内容需具备上篇Django简介基础
+...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-09-04&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/Django">Django</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/09/03/2018-09-03-Django/" target="_self">
+          <img src="https://97dpma.bl.files.1drv.com/y4m1IrIjJ4bIDu_tENjlgsriCjal1-f-6RnQTEdHq9DlJlb1SM-7iVGO3t2y0JB8mqInH30P0qLFX7Xu7UgYO4omEepQnYTNRBaXk_pvvB01DAyq0Up4qu23Np6eJZA70zorv_8hRIQbYwOXu9NuRn1NCbdkVsvACIT7V7DBdHIER-f_hIok4jBtFpjoQLbTEb_132znYk_CjeA26gI-ZM_rQ?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="Django简介" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/09/03/2018-09-03-Django/">
+        <p class="h4 index-header">Django简介</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+1.安装Django:
+pip install django
+
+        安装指定版本 pip install django==1.8
+换源: 
+
+        pip install -i https://pypi.tuna.tsinghua.edu.cn/simple django 
+查看安装是否成功:
+
+        django-admin --version2.创建项目
+创建任意目录(django-first)
+
+
+进入django-first目录创建项目myFirst:
+
+django-admin startproject myFirst
+此时目录结构为: 
+
+
+3.启动项目(一定要进入项目文件夹下执行命令)
+进入myFirst目录:
+
+cd myFirst
+执行命令: 
+
+python manage.py runserver
+如图显示 启动成功.
+
+
+
+修改默认端口号: 
+
+python manage.py runserver 80804.myFirst目录下创建app:django-admin startapp myApp5.渲染views.py  Htt</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-09-03&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+            <a href="/tags/web">web</a>&nbsp;
+          
+            <a href="/tags/Django">Django</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "A programmer who doesn’t like to sing is not a good boyfriend.&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

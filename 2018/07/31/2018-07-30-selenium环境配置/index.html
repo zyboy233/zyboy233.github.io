@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>selenium环境配置及使用 ~ zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二, 七月 31日 2018, 12:20 凌晨
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.5k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      7 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="selenium的特点"><a href="#selenium的特点" class="headerlink" title="selenium的特点:"></a>selenium的特点:</h2><ul>
+<li>由程序控制浏览器进行操作,而不是手动操作浏览器</li>
+<li>程序控制浏览器进行操作的时候,速度非常慢,所以要谨慎使用selenium</li>
+<li>使用selenium控制浏览器的时候,需要下载浏览器对应的驱动程序</li>
+<li>selenium为开源,免费,但是更新速度没有浏览器快,不是selenium<br> 更新慢,而是浏览器是更新快,注意selenium和浏览器对应关系</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="使用selenium之前进行环境配置"><a href="#使用selenium之前进行环境配置" class="headerlink" title="使用selenium之前进行环境配置"></a>使用selenium之前进行环境配置</h2><ol>
+<li><p>下载<code>chromedriver</code>和<code>geckodriver</code></p>
+<ul>
+<li><p><a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener" title="淘宝镜像源">chromedriver</a></p>
+<blockquote>
+<p>选择适合版本下载 附<a href="https://download.mozilla.org/?product=firefox-58.0&os=win&lang=zh-CN" target="_blank" rel="noopener" title="点击下载">FireFox_58_简中版</a><br><img src="/assets/img/Pictures/chromedriver.png" srcset="/img/loading.gif" alt="" title="效果"></p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener" title="GitHub地址">geckodriver/releases</a></p>
+<blockquote>
+<p>选择对应平台下载<br><img src="/assets/img/Pictures/geckodriver1.png" srcset="/img/loading.gif" alt="" title="效果"><br><img src="/assets/img/Pictures/geckodriver2.png" srcset="/img/loading.gif" alt="" title="效果"></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>将下载好的<code>chromedriver.exe</code>和<code>geckodriver.exe</code>解压后放到<code>Anoconda</code>的安装目录中或者Python安装目录中,位置如下:</p>
+</li>
+</ol>
+<blockquote>
+<p><code>D:\Python\Anaconda\Scripts</code></p>
+</blockquote>
+<ol start="3">
+<li><p>重启Pycharm 等待加载完成</p>
+</li>
+<li><p><code>terminal</code>或者<code>cmd</code>安装<code>selenium</code></p>
+</li>
+</ol>
+<blockquote>
+<p><code>pip install selenium</code></p>
+</blockquote>
+<ol start="5">
+<li><p>在Pycharm中引入网页驱动并执行</p>
+<pre><code class="python"> # 引入网页驱动
+ from selenium import webdriver
+ import time
+ # 使用网页驱动来运行google/firefox浏览器
+ driver = webdriver.Chrome()
+ # 通过驱动来执行指定的网页
+ driver.get(&#39;http://www.baidu.com&#39;)
+
+ # selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id=&quot;kw&quot;]
+ # 错误原因:代码执行速度很快,但是浏览器响应很慢,
+ # 代码执行到这的时候 浏览器里面的元素可能还没有加载完
+ # 所以报错找不到元素
+
+ # time.sleep(3)
+ # 通过id查找
+ driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+
+ # 通过name查找 属性
+ driver.find_element_by_name(&#39;wd&#39;).send_keys(&#39;csdn&#39;)
+
+ # Unicode 若后面有中文 那么前面需要加一个u   r:禁止转义
+ driver.find_element_by_class_name(&#39;s_ipt&#39;).send_keys(u&#39;智游&#39;)
+
+ # tag_name
+ driver.find_element_by_tag_name(&#39;input&#39;).send_keys(&#39;...&#39;)
+
+ # 前端 html css js
+ # selector 选择器
+ driver.find_element_by_css_selector(&#39;#kw&#39;).send_keys(&#39;...&#39;)
+
+ # 通过xpath语法定位一个元素
+ driver.find_element_by_xpath(&#39;//form[@id=&quot;form&quot;]/span/input[@id=&quot;kw&quot;]&#39;).send_keys(&#39;123&#39;)
+
+ #link 链接
+ driver.find_element_by_link_text(&#39;贴吧&#39;)
+
+ time.sleep(5)
+ driver.close()</code></pre>
+</li>
+<li><p>selenium进阶</p>
+<ul>
+<li>按键操作</li>
+</ul>
+<pre><code class="python"># commom 共同的;公共的
+# keys 键
+from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome()
+driver.get(&#39;http://www.baidu.com&#39;)
+
+time.sleep(3)
+# 找到输入框 输入指定内容
+driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+time.sleep(3)
+# 全选输入框内的全部内容
+driver.find_element_by_id(&#39;kw&#39;).send_keys(Keys.CONTROL,&#39;a&#39;)
+time.sleep(3)
+driver.find_element_by_id(&#39;kw&#39;).send_keys(Keys.CONTROL,&#39;x&#39;)
+time.sleep(3)
+driver.find_element_by_id(&#39;kw&#39;).send_keys(u&#39;爬虫技巧&#39;)
+time.sleep(3)
+driver.find_element_by_id(&#39;su&#39;).click()
+time.sleep(5)
+# 退出浏览器
+driver.quit()</code></pre>
+<ul>
+<li>时间等待</li>
+</ul>
+<pre><code class="python"># selenium 由网页驱动驱使浏览器进行操作,速度慢时一大特点
+# 经常会出现代码执行完了 但是网页内容还没有加载完毕
+# 里面的标签还没有显示出来 如果这时候操作里面的标签
+# 就会爆出异常 NoSuchElementExpection
+# 解决的办法:时间休眠 time.sleep()
+# 不管页面的内容有没有加载完毕 一定要休眠指定秒数
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get(&#39;http://www.baidu.com&#39;)
+# driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;hello world&#39;)
+
+button = driver.find_element_by_id(&#39;su&#39;)
+# WebDriverWait 网页等待
+# 值1: 等待的对象
+# 值2: 等待的时间
+# WebDriverWait经常和until not 一起使用 until: 直到...
+# lambda 匿名函数 is_displayed 是否已经显示
+is_visible = WebDriverWait(driver , 10).until(lambda driver: button.is_displayed())
+print(is_visible)
+button.click()
+
+# WebDriverWait() 和 time.sleep()
+# 1.都是让程序等待指定时间
+# 2.time的时间是固定的 时间长短不会随标签的加载速度而改变
+  # WebDriverWait时间是不固定的 等地啊多少时间要看标签的加载时间
+  # 和指定的固定的时间
+# 3.如果在指定的时间内,标签仍然没有加载出来,那么二者都会爆出异常
+
+# 隐性时间 implicility_wait</code></pre>
+<ul>
+<li>点击事件</li>
+</ul>
+<pre><code class="python">from selenium import webdriver
+# action 行动 chains 链
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+import time
+driver = webdriver.Chrome()
+driver.get(&#39;http://www.baidu.com&#39;)
+
+# driver.find_element_by_class_name(&#39;index-logo-src&#39;)
+logo = driver.find_element_by_css_selector(&#39;#lg &gt; img&#39;)
+logo = driver.find_element_by_xpath(&#39;//div[@id=&quot;lg&quot;]/img[@class=&quot;index-logo-src&quot;]&#39;)
+# 双击事件
+ActionChains(driver).double_click(logo).perform()
+# context 上下文
+# content 内容
+# context_click 右击
+
+# 右键点击
+# WebDriverWait(driver,10).until(lambda driver : logo.is_displayed())
+# action = ActionChains(driver).context_click(logo)
+# 操作事件会跑到perform队列里面 perform实现
+# action.perform()
+# time.sleep(5)
+
+# more = driver.find_element_by_class_name(&#39;bri&#39;)
+# # 鼠标移动
+# WebDriverWait(driver,10).until(lambda driver: more.is_displayed())
+# action = ActionChains(driver).move_to_element(more).perform()</code></pre>
+<ul>
+<li>标签选择</li>
+</ul>
+<pre><code class="python">from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+import os,time
+
+driver = webdriver.Chrome()
+driver.get(&#39;file:///&#39; + os.path.abspath(&#39;4.index.html&#39;))
+
+# 同过标签名字找到指定标签
+# btns = driver.find_elements_by_tag_name(&#39;button&#39;)
+# print(btns)
+
+# 通过索引找到指定标签
+# btns[1].click()
+
+# for btn in btns:
+#     # 通过属性找到指定标签
+#     if btn.get_attribute(&#39;type&#39;) == &#39;button&#39;:
+#         btn.click()
+  # time.sleep(3)
+  # btn.click()
+# btn = driver.find_element_by_tag_name(&#39;button&#39;).click()
+# find_element_by_XX通过XX来找到所有标签中的第一个标签
+# find_elements_by_XX通过XX来找到所有符合的标签
+
+# 弹出指定的元素 如果不写索引 默认为最后一个
+# driver.find_elements_by_css_selector(&#39;button&#39;).pop(3).click()
+
+# [type=button] []里面为限制条件 限制选择的内容
+driver.find_elements_by_css_selector(&#39;button[type=button]&#39;).pop().click()
+
+# 通过...来找到指定的标签 ID,TAG,CLASS...
+driver.find_element(by=By.ID,value=&#39;pink&#39;).click()
+
+time.sleep(10)
+driver.quit()</code></pre>
+<ul>
+<li>window切换</li>
+</ul>
+<pre><code class="python">from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+import time
+
+driver = webdriver.Chrome()
+driver.get(&#39;http://www.baidu.com&#39;)
+
+# 获取当前的window对象
+current_window = driver.current_window_handle
+# 获取当前窗口编号和网页标题
+print(current_window,driver.title)
+
+driver.find_element_by_name(&#39;tj_trnews&#39;).click()
+
+news = WebDriverWait(driver,10).until(lambda driver:driver.find_element_by_css_selector(&#39;.hdline0 .a3&#39;))
+news.click()
+
+# 获取所有的窗口
+all_windows = driver.window_handles
+print(all_windows)
+
+for window in all_windows:
+  if window != current_window:
+      # switch 切换 to 到
+      driver.switch_to.window(window)
+# title = driver.find_element_by_tag_name(&#39;h1&#39;)
+time.sleep(2)
+title = driver.find_element_by_css_selector(&#39;.text_title h1&#39;).text
+# WebDriverWait(driver,10).until(lambda driver: title.is_displayed())
+print(title)
+
+time.sleep(3)
+# 关闭窗口
+driver.close()
+
+driver.switch_to.window(current_window)
+time.sleep(2)
+print(driver.find_element_by_css_selector(&#39;#footer span&#39;).text)</code></pre>
+</li>
+</ol>
+<pre><code># 关闭浏览器
+# driver.quit()
+```
+
+* frame切换
+
+```python
+from selenium import webdriver
+import os
+
+driver = webdriver.Chrome()
+
+driver.get(&#39;file:///&#39; + os.path.abspath(&#39;6.outframe.html&#39;))
+
+# frame切换
+driver.switch_to.frame(driver.find_element_by_id(&#39;out&#39;))
+
+driver.switch_to.frame(&#39;in&#39;)
+
+driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+
+driver.find_element_by_id(&#39;su&#39;).click()
+```</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E7%88%AC%E8%99%AB">爬虫</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "selenium环境配置及使用&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

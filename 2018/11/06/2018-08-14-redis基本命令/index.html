@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Zhangyu">
+  <meta name="keywords" content="">
+  <title>Redis基本命令(更新) ~ zyboy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zyboy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default2.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二, 十一月 6日 2018, 8:00 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.9k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      9 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p><strong>Redis 是一个速度非常快的非关系型数据库，使用内存作为主存储，内存中的数据也可以被持久化到硬盘。Redis以键值对形式(key-value)存储数据，其中值可以分为以下5中类型：</strong></p>
+<ul>
+<li><a href="#字符串">字符串(string)</a></li>
+<li><a href="#列表">列表(list)</a></li>
+<li><a href="#哈希">哈希(hash)</a></li>
+<li><a href="#集合">集合(set)</a></li>
+<li><a href="#有序集合">有序集合(zset)</a></li>
+<li><a href="#key">key</a></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="Redis-基本命令"><a href="#Redis-基本命令" class="headerlink" title="Redis 基本命令"></a>Redis 基本命令</h3><h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>Redis的字符串(string)可以存储字符串、整数、浮点数,值最大存储512m。String命令及描述如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>String命令</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>set key value</td>
+<td>设置字符串key的值</td>
+</tr>
+<tr>
+<td>get key</td>
+<td>获取字符串key的值</td>
+</tr>
+<tr>
+<td>del key</td>
+<td>删除key</td>
+</tr>
+<tr>
+<td>strlen key</td>
+<td>获取值长度</td>
+</tr>
+<tr>
+<td>mset key1 value1 key2 value2…</td>
+<td>设置多个值</td>
+</tr>
+<tr>
+<td>mget key1 key2…</td>
+<td>获取多个值</td>
+</tr>
+<tr>
+<td>append key value</td>
+<td>追加值</td>
+</tr>
+<tr>
+<td>incr key</td>
+<td>将key对应的值加一</td>
+</tr>
+<tr>
+<td>decr key</td>
+<td>将key对应的值减一</td>
+</tr>
+<tr>
+<td>incrby key intnum</td>
+<td>将key对应的值加整数</td>
+</tr>
+<tr>
+<td>decrby key intnum</td>
+<td>将key对应的值减整数</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">127.0.0.1:6379&gt; mset age 30 sex man
+OK
+127.0.0.1:6379&gt; mget age sex
+1) &quot;30&quot;
+2) &quot;man&quot;
+127.0.0.1:6379&gt; append name lisi
+(integer) 4
+127.0.0.1:6379&gt; get name
+&quot;lisi&quot;
+127.0.0.1:6379&gt; strlen name
+(integer) 4
+127.0.0.1:6379&gt; incr age
+(integer) 31
+127.0.0.1:6379&gt; incrby age 10
+(integer) 41
+127.0.0.1:6379&gt; decr age
+(integer) 40
+127.0.0.1:6379&gt; decrby age 20
+(integer) 20
+127.0.0.1:6379&gt;</code></pre>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>Redis的列表(list)可以有序(按照插入顺序排序)地存储多个字符串。List命令及描述如下所示：</p>
+<blockquote>
+<p>索引值从0开始 ，可以为负数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>List命令</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lpush key1 value1 value2 …</td>
+<td>在列表key左端插入一个或者多个值</td>
+</tr>
+<tr>
+<td>rpush key1 value1 value2 …</td>
+<td>在列表key又端插入一个或者多个值</td>
+</tr>
+<tr>
+<td>linsert key before/after pivot value</td>
+<td>在一个元素的前/后插入新的元素</td>
+</tr>
+<tr>
+<td>lset key index value</td>
+<td>设置指定索引的元素值</td>
+</tr>
+<tr>
+<td>lpop key</td>
+<td>在列表key左端弹出一个值</td>
+</tr>
+<tr>
+<td>rpop key</td>
+<td>在列表key右端弹出一个值</td>
+</tr>
+<tr>
+<td>llen key</td>
+<td>获取列表key的长度</td>
+</tr>
+<tr>
+<td>lindex key index</td>
+<td>获取列表key中index位置的值</td>
+</tr>
+<tr>
+<td>lrange key start end</td>
+<td>获取列表key中位置在[start,end]范围的值</td>
+</tr>
+<tr>
+<td>ltrim key start end</td>
+<td>裁剪列表，改为元集合的一个子集</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">127.0.0.1:6379&gt; lpush fond study game sing
+(integer) 3
+127.0.0.1:6379&gt; lrange fond 0 -1
+1) &quot;sing&quot;
+2) &quot;game&quot;
+3) &quot;study&quot;
+127.0.0.1:6379&gt; rpush friends Jane Jack
+(integer) 2
+127.0.0.1:6379&gt; linsert friends after Jack kangkang
+(integer) 3
+127.0.0.1:6379&gt; lrange friends 0 -1
+1) &quot;Jane&quot;
+2) &quot;Jack&quot;
+3) &quot;kangkang&quot;
+127.0.0.1:6379&gt; lset fond 2 swim
+OK
+127.0.0.1:6379&gt; lpop fond
+&quot;sing&quot;
+127.0.0.1:6379&gt; rpop friends
+&quot;kangkang&quot;
+127.0.0.1:6379&gt; lrange fond 0 -1
+1) &quot;game&quot;
+2) &quot;swim&quot;
+127.0.0.1:6379&gt; llen fond
+(integer) 2
+127.0.0.1:6379&gt; lindex fond 0
+&quot;game&quot;
+127.0.0.1:6379&gt; ltrim friends 0 2
+OK
+127.0.0.1:6379&gt; lrange friends 0 -1
+1) &quot;Jane&quot;
+2) &quot;Jack&quot;
+</code></pre>
+<h4 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h4><p>Redis的哈希(Hash)可以存储多个键值对，其中的键和值都是字符串。Hash命令及描述如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>Hash命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hset key field value</td>
+<td>将哈希key的field字段赋值为value</td>
+</tr>
+<tr>
+<td>hmset key field1 value1 field2 value2…</td>
+<td>设置多个值</td>
+</tr>
+<tr>
+<td>hdel key field1 field2…</td>
+<td>删除哈希key的一个或多个字段</td>
+</tr>
+<tr>
+<td>hget key field</td>
+<td>获取哈希key的field字段的值</td>
+</tr>
+<tr>
+<td>hmget key field1 field2…</td>
+<td>获取多个属性的值</td>
+</tr>
+<tr>
+<td>hgetall key</td>
+<td>获取哈希key的所有字段和值</td>
+</tr>
+<tr>
+<td>hkeys key</td>
+<td>获取所有属性</td>
+</tr>
+<tr>
+<td>hvals key</td>
+<td>获取所有值</td>
+</tr>
+<tr>
+<td>hlen  key</td>
+<td>返回包含数据的个数</td>
+</tr>
+<tr>
+<td>hexists key field</td>
+<td>判断属性是否存在，存在返回1，不存在返回0</td>
+</tr>
+<tr>
+<td>hstrlen key field</td>
+<td>返回值的字符串长度</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">127.0.0.1:6379&gt; hset point x 10
+(integer) 1
+127.0.0.1:6379&gt; hmset point y 20
+OK
+127.0.0.1:6379&gt; hget point y
+&quot;20&quot;
+127.0.0.1:6379&gt; hmget point
+(error) ERR wrong number of argu
+127.0.0.1:6379&gt; hmget point x z
+1) &quot;10&quot;
+2) &quot;30&quot;
+127.0.0.1:6379&gt; hgetall point
+1) &quot;x&quot;
+2) &quot;10&quot;
+3) &quot;y&quot;
+4) &quot;20&quot;
+5) &quot;z&quot;
+6) &quot;30&quot;
+127.0.0.1:6379&gt; hkeys point
+1) &quot;x&quot;
+2) &quot;y&quot;
+3) &quot;z&quot;
+127.0.0.1:6379&gt; hvals point
+1) &quot;10&quot;
+2) &quot;20&quot;
+3) &quot;30&quot;
+127.0.0.1:6379&gt; hlen point
+(integer) 3
+127.0.0.1:6379&gt; hexists point w
+(integer) 0
+127.0.0.1:6379&gt; hstrlen point x
+(integer) 2
+127.0.0.1:6379&gt; hdel point x y z
+(integer) 3
+</code></pre>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><p>Redis中的集合(set)可以存储多个唯一的字符串,是string类型的无序集合。set命令及描述如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>set命令</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sadd key member1 member2…</td>
+<td>向集合key中添加一个或多个成员</td>
+</tr>
+<tr>
+<td>srem key member1 member2…</td>
+<td>删除集合key中一个或者多个成员</td>
+</tr>
+<tr>
+<td>smembers key</td>
+<td>获取集合key中所有成员</td>
+</tr>
+<tr>
+<td>scard key</td>
+<td>获取集合key中成员数量</td>
+</tr>
+<tr>
+<td>sismember key menber</td>
+<td>判断member是否是集合key的成员</td>
+</tr>
+<tr>
+<td>sinter key1 key2…</td>
+<td>求多个集合的交集</td>
+</tr>
+<tr>
+<td>sdiff  key1 key2…</td>
+<td>求多个集合的差集</td>
+</tr>
+<tr>
+<td>sunion key1 key2…</td>
+<td>求多个集合的合集</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">127.0.0.1:6379&gt; sadd color red black blue whi
+(integer) 4
+127.0.0.1:6379&gt; smembers color
+1) &quot;black&quot;
+2) &quot;white&quot;
+3) &quot;blue&quot;
+4) &quot;red&quot;
+127.0.0.1:6379&gt; scard color
+(integer) 4
+127.0.0.1:6379&gt; sismember color yellow
+(integer) 0
+127.0.0.1:6379&gt; sadd colors red blue yellow p
+(integer) 4
+127.0.0.1:6379&gt; sinter color colors
+1) &quot;blue&quot;
+2) &quot;red&quot;
+127.0.0.1:6379&gt; sdiff color colors
+1) &quot;black&quot;
+2) &quot;white&quot;
+127.0.0.1:6379&gt; sunion color colors
+1) &quot;yellow&quot;
+2) &quot;black&quot;
+3) &quot;pink&quot;
+4) &quot;white&quot;
+5) &quot;blue&quot;
+6) &quot;red&quot;
+127.0.0.1:6379&gt; srem color red black
+(integer) 2
+</code></pre>
+<h4 id="有序集合"><a href="#有序集合" class="headerlink" title="有序集合"></a>有序集合</h4><p>Redis中的有序集合(ZSet)与集合(Set)类似，可以存储多个唯一的字符串，但在有序集合中，每个成员都有一个分数(score)，所有成员按给定分数在集合中由小到大有序排列。zset中成员是唯一的,但是分数(score)可以相同.Zset命令及描述如下图所示：</p>
+<table>
+<thead>
+<tr>
+<th>Zset命令</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zadd key score1 member1 score2 member2…</td>
+<td>向有序集合key中添加一个或多个成员</td>
+</tr>
+<tr>
+<td>zrem key member member2 …</td>
+<td>删除有序集合key中一个或多个成员</td>
+</tr>
+<tr>
+<td>zrange key start stop</td>
+<td>获取有序集合key中位置在[start,end]范围的所有成员</td>
+</tr>
+<tr>
+<td>zrangebyscore key min max</td>
+<td>获取有序集合key中分值在[min,max]范围的所有成员</td>
+</tr>
+<tr>
+<td>zcount key key min max</td>
+<td>获取有序集合key中分值在[min,max]范围的个数</td>
+</tr>
+<tr>
+<td>zcard key</td>
+<td>返回元素的个数</td>
+</tr>
+<tr>
+<td>zscore key member</td>
+<td>返回有序集合key中，成员member的分值</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">127.0.0.1:6379&gt; zadd country 1 China 2 Russia 3 India 4 France
+(integer) 5
+127.0.0.1:6379&gt; zrange country 0 -1
+1) &quot;China&quot;
+2) &quot;Russia&quot;
+3) &quot;India&quot;
+4) &quot;France&quot;
+5) &quot;Italy&quot;
+127.0.0.1:6379&gt; zrangebyscore country 1 3
+1) &quot;China&quot;
+2) &quot;Russia&quot;
+3) &quot;India&quot;
+127.0.0.1:6379&gt; zcount country 1 4
+(integer) 4
+127.0.0.1:6379&gt; zcard country
+(integer) 5
+127.0.0.1:6379&gt; zscore country China
+&quot;1&quot;
+</code></pre>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><table>
+<thead>
+<tr>
+<th>key命令</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>keys pattern</td>
+<td>查找键，参数支持正则</td>
+</tr>
+<tr>
+<td>exists key</td>
+<td>判断键是否存在，如果存在返回1，不存在返回0</td>
+</tr>
+<tr>
+<td>type key</td>
+<td>查看键及对应的值</td>
+</tr>
+<tr>
+<td>del key1 key2 …</td>
+<td>删除键及对应的值</td>
+</tr>
+<tr>
+<td>expire key seconds</td>
+<td>设置过期时间，以秒为单位</td>
+</tr>
+<tr>
+<td>ttl key</td>
+<td>查看有效时间，以秒为单位</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>更多命令请参考官网 <a href="https://redis.io" target="_blank" rel="noopener">https://redis.io</a></li>
+</ul>
+</blockquote>
+<!-- <meta http-equiv="refresh" content="3"> -->
+
+
+
+
+
+
+
+
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/redis">redis</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Redis基本命令(更新)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
