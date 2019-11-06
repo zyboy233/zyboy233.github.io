@@ -136,6 +136,53 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/08/04/2018-08-03-xpath%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC/" target="_self">
+          <img src="https://tifvxw.bl.files.1drv.com/y4mcqaL5joTkthHBN3CcKh_RjTfPF_qCA0HxiYiyPclmWKL9Y3eOZt4KxmZmTdVUjVdxwHzoUvwylUFhPMRH4D_MX37wXEuqbEdTbsxiFgc04y3efZTe-TLVbSm4ZzTs2IJqNTTf3G0FVuzqoLCkK1rG6Hq4fxc1ZQZUuQwP_4nzvxDT6c5oPl5fJP13gRA8W_QoAX_2CfYFCgnRJyEaTyYvA?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="xpath获取文本" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/08/04/2018-08-03-xpath%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC/">
+        <p class="h4 index-header">xpath获取文本</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">以爬取百度贴吧content说明:
+获取最外边标签,遍历内部所有子标签,获取标签文本content =div.xpath(&#39;.//cc/div[@class=&quot;d_post_content j_d_post_content &quot;]//text()&#39;).extract()`
+
+正则去掉所有标签 &lt;.*?&gt;      re.sub(‘’,content)content = div.xpath(&#39;.//cc/div[@class=&quot;d_post_content j_d_post_content &quot;]&#39;)
+
+
+
+pattern = re.compile(‘&lt;.*?&gt;’)
+content = pattern.sub(‘’,content)
+3. /text() 获取标签的文本   //text()获取标签以及子标签的文本
+```python
+content_list = div.xpath(&#39;.//div[@class=&quot;d_post_content j_d_post_content </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-04&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%88%AC%E8%99%AB">爬虫</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2018/08/01/2018-07-31-%E9%85%B7%E5%AE%89/" target="_self">
           <img src="https://uoek1a.bl.files.1drv.com/y4m61nvLLbHwWFmC-712aobhmoBDRGqwS56n9MRjjgam_D8VjR3E4A2CpoK2evFcR0KTB2DOrJjch-xHwis-zf_o4aqfV5Twd62ODZOXS5bvwldsT2pNCDQhd2edR5FmRqdwgtjslOLWqsxilgQ4Ibvjcg0FP9Ou0m-3IJ8YfcIM3CQ26KaL0XJufGcmxpqGneqc7lBXkNRxfqwBxB08UfSJA?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="酷安" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -515,48 +562,6 @@ import requests
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-27&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%88%AC%E8%99%AB">爬虫</a>&nbsp;
-          
-            <a href="/tags/Python">Python</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/26/2018-07-25-%E7%BE%8E%E9%A3%9F%E6%9D%B0%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" target="_self">
-          <img src="https://ties1a.bl.files.1drv.com/y4mUwFt7dBLl1wtRdYkFcr0E-YDFYJjFH2plvYnt3VPtEGySPEgpNlR867-c_0m-DHOVGn5ijC9jGwo2H4NpC-yHcuNphEdCUrWw95TTguRLPYzyMZtsFcYMK69GBmNlmIaGurJSZEnTXcwLdJ7pPSrUiJUf4HIpqav-uuI6OZIRbZazE1u3D_2OF2f59rUjXp7g4nhAX0-Yr0kJWcjuZZVLA?width=1920&height=1080&cropmode=none" srcset="/img/loading.gif" alt="美食杰模拟登陆" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2018/07/26/2018-07-25-%E7%BE%8E%E9%A3%9F%E6%9D%B0%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/">
-        <p class="h4 index-header">美食杰模拟登陆</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">Charles抓包分析
-
-美食节 使用cookie模拟登陆 获取网页源码 使用xpath得到用户信息 存储到excel表格
-...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-26&nbsp;&nbsp;
         
         
         
