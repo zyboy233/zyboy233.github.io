@@ -5,9 +5,9 @@
   <subtitle>A programmer who doesn’t like to sing is not a good boyfriend</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="zyboy.top/"/>
+  <link href="zyboy.cn/"/>
   <updated>2019-11-10T10:27:29.792Z</updated>
-  <id>zyboy.top/</id>
+  <id>zyboy.cn/</id>
   
   <author>
     <name>Zhangyu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>win&amp;office激活服务器</title>
-    <link href="zyboy.top/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>zyboy.top/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <link href="zyboy.cn/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>zyboy.cn/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
     <published>2019-11-10T14:00:00.000Z</published>
     <updated>2019-11-10T10:27:29.792Z</updated>
     
@@ -31,16 +31,16 @@
     
     
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
-      <category term="win" scheme="zyboy.top/tags/win/"/>
+      <category term="win" scheme="zyboy.cn/tags/win/"/>
     
   </entry>
   
   <entry>
     <title>Pandas速查</title>
-    <link href="zyboy.top/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/"/>
-    <id>zyboy.top/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/</id>
+    <link href="zyboy.cn/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/"/>
+    <id>zyboy.cn/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/</id>
     <published>2019-11-06T08:30:00.000Z</published>
     <updated>2019-11-07T00:14:40.685Z</updated>
     
@@ -59,16 +59,16 @@
     
     
     
-      <category term="python" scheme="zyboy.top/tags/python/"/>
+      <category term="python" scheme="zyboy.cn/tags/python/"/>
     
-      <category term="数据处理" scheme="zyboy.top/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="zyboy.cn/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>screen</title>
-    <link href="zyboy.top/2019/11/06/2019-11-06-screen/"/>
-    <id>zyboy.top/2019/11/06/2019-11-06-screen/</id>
+    <link href="zyboy.cn/2019/11/06/2019-11-06-screen/"/>
+    <id>zyboy.cn/2019/11/06/2019-11-06-screen/</id>
     <published>2019-11-06T07:30:00.000Z</published>
     <updated>2019-11-06T03:03:57.920Z</updated>
     
@@ -80,14 +80,14 @@
     
     
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>GitHub提速</title>
-    <link href="zyboy.top/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/"/>
-    <id>zyboy.top/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/</id>
+    <link href="zyboy.cn/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/"/>
+    <id>zyboy.cn/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/</id>
     <published>2019-08-04T05:00:00.000Z</published>
     <updated>2019-11-05T07:38:30.317Z</updated>
     
@@ -106,16 +106,16 @@
     
     
     
-      <category term="DNS" scheme="zyboy.top/tags/DNS/"/>
+      <category term="DNS" scheme="zyboy.cn/tags/DNS/"/>
     
-      <category term="GitHub" scheme="zyboy.top/tags/GitHub/"/>
+      <category term="GitHub" scheme="zyboy.cn/tags/GitHub/"/>
     
   </entry>
   
   <entry>
     <title>SS服务器部署</title>
-    <link href="zyboy.top/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/"/>
-    <id>zyboy.top/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</id>
+    <link href="zyboy.cn/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/"/>
+    <id>zyboy.cn/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</id>
     <published>2019-07-05T05:00:00.000Z</published>
     <updated>2019-11-05T06:43:32.096Z</updated>
     
@@ -142,18 +142,18 @@
     
     
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
-      <category term="ss" scheme="zyboy.top/tags/ss/"/>
+      <category term="ss" scheme="zyboy.cn/tags/ss/"/>
     
-      <category term="vultr" scheme="zyboy.top/tags/vultr/"/>
+      <category term="vultr" scheme="zyboy.cn/tags/vultr/"/>
     
   </entry>
   
   <entry>
     <title>celery简单使用(搬运整理)</title>
-    <link href="zyboy.top/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>zyboy.top/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
+    <link href="zyboy.cn/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.cn/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
     <published>2018-11-07T03:00:00.000Z</published>
     <updated>2019-11-05T07:30:52.821Z</updated>
     
@@ -165,18 +165,18 @@
     
     
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
-      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+      <category term="MQ" scheme="zyboy.cn/tags/MQ/"/>
     
   </entry>
   
   <entry>
     <title>Redis基本命令(更新)</title>
-    <link href="zyboy.top/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>zyboy.top/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</id>
+    <link href="zyboy.cn/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>zyboy.cn/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</id>
     <published>2018-11-06T12:00:00.000Z</published>
     <updated>2019-08-04T06:12:20.817Z</updated>
     
@@ -196,14 +196,14 @@
     
     
     
-      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+      <category term="redis" scheme="zyboy.cn/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>rabbitMQ多个接收端消费信息(搬运整理)</title>
-    <link href="zyboy.top/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/"/>
-    <id>zyboy.top/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/</id>
+    <link href="zyboy.cn/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/"/>
+    <id>zyboy.cn/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/</id>
     <published>2018-11-05T12:00:00.000Z</published>
     <updated>2019-11-05T07:31:55.583Z</updated>
     
@@ -216,18 +216,18 @@
     
     
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
-      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+      <category term="MQ" scheme="zyboy.cn/tags/MQ/"/>
     
   </entry>
   
   <entry>
     <title>RabbitMQ概述和运行机制(搬运整理)</title>
-    <link href="zyboy.top/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-    <id>zyboy.top/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</id>
+    <link href="zyboy.cn/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+    <id>zyboy.cn/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</id>
     <published>2018-11-03T07:00:00.000Z</published>
     <updated>2019-11-05T07:32:36.145Z</updated>
     
@@ -241,18 +241,18 @@
     
     
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+      <category term="linux" scheme="zyboy.cn/tags/linux/"/>
     
-      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+      <category term="MQ" scheme="zyboy.cn/tags/MQ/"/>
     
   </entry>
   
   <entry>
     <title>Centos 7 下部署Django + uWSGI + Nginx</title>
-    <link href="zyboy.top/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/"/>
-    <id>zyboy.top/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/</id>
+    <link href="zyboy.cn/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/"/>
+    <id>zyboy.cn/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/</id>
     <published>2018-10-16T08:00:00.000Z</published>
     <updated>2019-08-04T06:12:20.823Z</updated>
     
@@ -269,45 +269,45 @@
     
     
     
-      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+      <category term="Python" scheme="zyboy.cn/tags/Python/"/>
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+      <category term="Django" scheme="zyboy.cn/tags/Django/"/>
     
-      <category term="nginx" scheme="zyboy.top/tags/nginx/"/>
+      <category term="nginx" scheme="zyboy.cn/tags/nginx/"/>
     
   </entry>
   
   <entry>
     <title>Django使用</title>
-    <link href="zyboy.top/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/"/>
-    <id>zyboy.top/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/</id>
+    <link href="zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/</id>
     <published>2018-09-04T14:00:00.000Z</published>
     <updated>2019-08-04T06:12:20.821Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;本篇内容需具备上篇&lt;a href=&quot;https://zyboy.top/2018/09/03/2018-09-03-Django/&quot;&gt;Django简介&lt;/a&gt;基础&lt;/p&gt;
+&lt;p&gt;本篇内容需具备上篇&lt;a href=&quot;https://zyboy.top/2018/09/03/2018-09-03-Django/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Django简介&lt;/a&gt;基础&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
     
     
-      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+      <category term="Python" scheme="zyboy.cn/tags/Python/"/>
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+      <category term="Django" scheme="zyboy.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>编码规范</title>
-    <link href="zyboy.top/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>zyboy.top/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
+    <link href="zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
     <published>2018-09-04T14:00:00.000Z</published>
     <updated>2019-08-04T06:12:20.822Z</updated>
     
@@ -319,18 +319,18 @@
     
     
     
-      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+      <category term="Python" scheme="zyboy.cn/tags/Python/"/>
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+      <category term="Django" scheme="zyboy.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>Django简介</title>
-    <link href="zyboy.top/2018/09/03/2018-09-03-Django/"/>
-    <id>zyboy.top/2018/09/03/2018-09-03-Django/</id>
+    <link href="zyboy.cn/2018/09/03/2018-09-03-Django/"/>
+    <id>zyboy.cn/2018/09/03/2018-09-03-Django/</id>
     <published>2018-09-03T12:00:00.000Z</published>
     <updated>2019-11-05T06:41:34.920Z</updated>
     
@@ -351,18 +351,18 @@
     
     
     
-      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+      <category term="Python" scheme="zyboy.cn/tags/Python/"/>
     
-      <category term="web" scheme="zyboy.top/tags/web/"/>
+      <category term="web" scheme="zyboy.cn/tags/web/"/>
     
-      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+      <category term="Django" scheme="zyboy.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>node.js进阶</title>
-    <link href="zyboy.top/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/"/>
-    <id>zyboy.top/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/</id>
+    <link href="zyboy.cn/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/"/>
+    <id>zyboy.cn/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/</id>
     <published>2018-08-30T15:00:00.000Z</published>
     <updated>2019-11-05T07:39:58.998Z</updated>
     
@@ -388,19 +388,19 @@
     </summary>
     
     
-      <category term="前端" scheme="zyboy.top/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="zyboy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="node.js" scheme="zyboy.top/tags/node-js/"/>
+      <category term="node.js" scheme="zyboy.cn/tags/node-js/"/>
     
-      <category term="html" scheme="zyboy.top/tags/html/"/>
+      <category term="html" scheme="zyboy.cn/tags/html/"/>
     
   </entry>
   
   <entry>
     <title>node.js使用</title>
-    <link href="zyboy.top/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/"/>
-    <id>zyboy.top/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/</id>
+    <link href="zyboy.cn/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.cn/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/</id>
     <published>2018-08-29T11:52:00.000Z</published>
     <updated>2019-11-05T07:39:09.986Z</updated>
     
@@ -413,19 +413,19 @@
     </summary>
     
     
-      <category term="前端" scheme="zyboy.top/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="zyboy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="node.js" scheme="zyboy.top/tags/node-js/"/>
+      <category term="node.js" scheme="zyboy.cn/tags/node-js/"/>
     
-      <category term="html" scheme="zyboy.top/tags/html/"/>
+      <category term="html" scheme="zyboy.cn/tags/html/"/>
     
   </entry>
   
   <entry>
     <title>scrapy_redis设置及分布式爬虫案例分析</title>
-    <link href="zyboy.top/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/"/>
-    <id>zyboy.top/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</id>
+    <link href="zyboy.cn/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/"/>
+    <id>zyboy.cn/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</id>
     <published>2018-08-16T09:52:00.000Z</published>
     <updated>2019-08-04T06:12:20.817Z</updated>
     
@@ -442,16 +442,16 @@
     
     
     
-      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+      <category term="scrapy" scheme="zyboy.cn/tags/scrapy/"/>
     
-      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+      <category term="redis" scheme="zyboy.cn/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>redis数据库简单介绍</title>
-    <link href="zyboy.top/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
-    <id>zyboy.top/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
+    <link href="zyboy.cn/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>zyboy.cn/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
     <published>2018-08-13T18:30:00.000Z</published>
     <updated>2019-11-05T06:39:55.691Z</updated>
     
@@ -463,14 +463,14 @@
     
     
     
-      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+      <category term="redis" scheme="zyboy.cn/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>phantomjs使用</title>
-    <link href="zyboy.top/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/"/>
-    <id>zyboy.top/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/</id>
+    <link href="zyboy.cn/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.cn/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/</id>
     <published>2018-08-11T13:30:20.000Z</published>
     <updated>2019-11-05T06:36:50.649Z</updated>
     
@@ -482,16 +482,16 @@
     
     
     
-      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="zyboy.cn/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+      <category term="scrapy" scheme="zyboy.cn/tags/scrapy/"/>
     
   </entry>
   
   <entry>
     <title>scrapy中间件</title>
-    <link href="zyboy.top/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-    <id>zyboy.top/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/</id>
+    <link href="zyboy.cn/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    <id>zyboy.cn/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/</id>
     <published>2018-08-11T13:30:20.000Z</published>
     <updated>2019-11-05T06:39:22.679Z</updated>
     
@@ -503,16 +503,16 @@
     
     
     
-      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="zyboy.cn/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+      <category term="scrapy" scheme="zyboy.cn/tags/scrapy/"/>
     
   </entry>
   
   <entry>
     <title>scrapy帮助</title>
-    <link href="zyboy.top/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/"/>
-    <id>zyboy.top/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/</id>
+    <link href="zyboy.cn/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/"/>
+    <id>zyboy.cn/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/</id>
     <published>2018-08-11T12:30:20.000Z</published>
     <updated>2019-11-05T06:38:41.676Z</updated>
     
@@ -524,9 +524,9 @@
     
     
     
-      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="zyboy.cn/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+      <category term="scrapy" scheme="zyboy.cn/tags/scrapy/"/>
     
   </entry>
   
