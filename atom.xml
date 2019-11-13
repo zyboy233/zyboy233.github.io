@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+  <title>zyboy</title>
+  
+  <subtitle>A programmer who doesn’t like to sing is not a good boyfriend</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="zyboy.top/"/>
+  <updated>2019-11-10T10:27:29.792Z</updated>
+  <id>zyboy.top/</id>
+  
+  <author>
+    <name>Zhangyu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win&amp;office激活服务器</title>
+    <link href="zyboy.top/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>zyboy.top/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <published>2019-11-10T14:00:00.000Z</published>
+    <updated>2019-11-10T10:27:29.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;天天用别人的KMS激活说不定哪天就挂了，就在自己的服务器部署了一下激活服务&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+      <category term="win" scheme="zyboy.top/tags/win/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas速查</title>
+    <link href="zyboy.top/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/"/>
+    <id>zyboy.top/2019/11/06/2019-11-06-Pandas%E9%80%9F%E6%9F%A5/</id>
+    <published>2019-11-06T08:30:00.000Z</published>
+    <updated>2019-11-07T00:14:40.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Building…&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="zyboy.top/tags/python/"/>
+    
+      <category term="数据处理" scheme="zyboy.top/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>screen</title>
+    <link href="zyboy.top/2019/11/06/2019-11-06-screen/"/>
+    <id>zyboy.top/2019/11/06/2019-11-06-screen/</id>
+    <published>2019-11-06T07:30:00.000Z</published>
+    <updated>2019-11-06T03:03:57.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;screen&quot;&gt;&lt;a href=&quot;#screen&quot; class=&quot;headerlink&quot; title=&quot;screen&quot;&gt;&lt;/a&gt;screen&lt;/h1&gt;&lt;p&gt;是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。 &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub提速</title>
+    <link href="zyboy.top/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/"/>
+    <id>zyboy.top/2019/08/04/2019-08-04-github%E6%8F%90%E9%80%9F/</id>
+    <published>2019-08-04T05:00:00.000Z</published>
+    <updated>2019-11-05T07:38:30.317Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;自从微软收购GitHub以来，GitHub仓库同步速度抽风减少。但是从昨天开始到现在GitHub仓库同步变得巨慢，联系中美贸易战以及最近的微软发布遵守美国法律的新闻消息等等，大家都懂，看来GitHub分发服务器DNS污染严重。那咱也不能放弃，那咱们
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="DNS" scheme="zyboy.top/tags/DNS/"/>
+    
+      <category term="GitHub" scheme="zyboy.top/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SS服务器部署</title>
+    <link href="zyboy.top/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/"/>
+    <id>zyboy.top/2019/07/05/2019-07-05-SS%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</id>
+    <published>2019-07-05T05:00:00.000Z</published>
+    <updated>2019-11-05T06:43:32.096Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;你好啊&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;太长了，我决定鸽😮&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Building。。。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+      <category term="ss" scheme="zyboy.top/tags/ss/"/>
+    
+      <category term="vultr" scheme="zyboy.top/tags/vultr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>celery简单使用(搬运整理)</title>
+    <link href="zyboy.top/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.top/2018/11/07/2018-11-07-celery%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
+    <published>2018-11-07T03:00:00.000Z</published>
+    <updated>2019-11-05T07:30:52.821Z</updated>
+    
+    <summary type="html">
+    
+      Celery是一个基于Python开发的分布式异步消息队列，可以轻松实现任务的异步处理。
+    
+    </summary>
+    
+    
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis基本命令(更新)</title>
+    <link href="zyboy.top/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>zyboy.top/2018/11/06/2018-08-14-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</id>
+    <published>2018-11-06T12:00:00.000Z</published>
+    <updated>2019-08-04T06:12:20.817Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Redis 是一个速度非常快的非关系型数据库，使用内存作为主存储，内存中的数据也可以被持久化到硬盘。Redis以键值对形式(key-value)存储数据，其中值可以分为以下5中类型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#字符串&quot;&gt;字符串(string)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#列表&quot;&gt;列表(list)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#哈希&quot;&gt;哈希(hash)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#集合&quot;&gt;集合(set)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#有序集合&quot;&gt;有序集合(zset)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#key&quot;&gt;key&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rabbitMQ多个接收端消费信息(搬运整理)</title>
+    <link href="zyboy.top/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/"/>
+    <id>zyboy.top/2018/11/05/2018-11-05-rabbitMQ%E5%A4%9A%E4%B8%AA%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%B6%88%E8%B4%B9%E4%BF%A1%E6%81%AF/</id>
+    <published>2018-11-05T12:00:00.000Z</published>
+    <updated>2019-11-05T07:31:55.583Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;循环分发&quot;&gt;&lt;a href=&quot;#循环分发&quot; class=&quot;headerlink&quot; title=&quot;循环分发&quot;&gt;&lt;/a&gt;循环分发&lt;/h1&gt;&lt;p&gt;启动一个发送端往队列发消息，此时启动多个接收端。发送的消息会对接收端一个一个挨着发送消息。&lt;/p&gt;
+&lt;p&gt;这就是默认情况下，多个接收端轮流消费消息。队列发送给消费端后，就立即删除。那么问题来了，当某个消费者在处理消息的时候，异常终止了怎么办？此时，我们更希望这样：若是那个消费者挂掉了，消息自动转给另一个消费者处理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMQ概述和运行机制(搬运整理)</title>
+    <link href="zyboy.top/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+    <id>zyboy.top/2018/11/03/2018-11-2-RabbitMQ%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</id>
+    <published>2018-11-03T07:00:00.000Z</published>
+    <updated>2019-11-05T07:32:36.145Z</updated>
+    
+    <summary type="html">
+    
+      &lt;!-- #  RabbitMQ概述和运行机制 --&gt;
+
+&lt;h1 id=&quot;RabbitMQ概述-搬运&quot;&gt;&lt;a href=&quot;#RabbitMQ概述-搬运&quot; class=&quot;headerlink&quot; title=&quot;RabbitMQ概述[搬运]&quot;&gt;&lt;/a&gt;RabbitMQ概述&lt;code&gt;[搬运]&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;RabbitMQ概述&lt;/strong&gt;：RabbitMQ是使用最广泛的开源消息代理。RabbitMQ轻量级，易于在集群内部和云平台中部署。它支持多种消息传递协议。 它可以满足企业高规模，高可用性的要求。RabbitMQ使用Erlang语言开发的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="linux" scheme="zyboy.top/tags/linux/"/>
+    
+      <category term="MQ" scheme="zyboy.top/tags/MQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos 7 下部署Django + uWSGI + Nginx</title>
+    <link href="zyboy.top/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/"/>
+    <id>zyboy.top/2018/10/16/2018-10-16-Centos7%E9%83%A8%E7%BD%B2Django/</id>
+    <published>2018-10-16T08:00:00.000Z</published>
+    <updated>2019-08-04T06:12:20.823Z</updated>
+    
+    <summary type="html">
+    
+      &lt;!-- # Centos 7 下部署Django + uWSGI + Nginx --&gt;
+
+&lt;h2 id=&quot;环境：&quot;&gt;&lt;a href=&quot;#环境：&quot; class=&quot;headerlink&quot; title=&quot;环境：&quot;&gt;&lt;/a&gt;环境：&lt;/h2&gt;&lt;p&gt;Python: 3.6&lt;/p&gt;
+&lt;p&gt;Django: 2.1&lt;/p&gt;
+&lt;p&gt;OS: CentOS 7 x86_64&lt;/p&gt;
+&lt;p&gt;uwsgi: 2.0.17&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+    
+      <category term="nginx" scheme="zyboy.top/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django使用</title>
+    <link href="zyboy.top/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.top/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/</id>
+    <published>2018-09-04T14:00:00.000Z</published>
+    <updated>2019-08-04T06:12:20.821Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本篇内容需具备上篇&lt;a href=&quot;https://zyboy.top/2018/09/03/2018-09-03-Django/&quot;&gt;Django简介&lt;/a&gt;基础&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编码规范</title>
+    <link href="zyboy.top/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>zyboy.top/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
+    <published>2018-09-04T14:00:00.000Z</published>
+    <updated>2019-08-04T06:12:20.822Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;PEP8规范&quot;&gt;&lt;a href=&quot;#PEP8规范&quot; class=&quot;headerlink&quot; title=&quot;PEP8规范&quot;&gt;&lt;/a&gt;PEP8规范&lt;/h1&gt;&lt;p&gt;（一） 代码的编排&lt;br&gt;1、 缩进。每行需要4个空格的缩进，不要使用Tap键，更不能混合使用Tap键和空格。&lt;br&gt;2 、每行最大长度79，换行可以使用反斜杠，但最好使用圆括号。换行点要在操作符的后边敲回车。&lt;br&gt;3 、类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django简介</title>
+    <link href="zyboy.top/2018/09/03/2018-09-03-Django/"/>
+    <id>zyboy.top/2018/09/03/2018-09-03-Django/</id>
+    <published>2018-09-03T12:00:00.000Z</published>
+    <updated>2019-11-05T06:41:34.920Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h3 id=&quot;1-安装Django&quot;&gt;&lt;a href=&quot;#1-安装Django&quot; class=&quot;headerlink&quot; title=&quot;1.安装Django:&quot;&gt;&lt;/a&gt;1.安装Django:&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;pip
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Python" scheme="zyboy.top/tags/Python/"/>
+    
+      <category term="web" scheme="zyboy.top/tags/web/"/>
+    
+      <category term="Django" scheme="zyboy.top/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node.js进阶</title>
+    <link href="zyboy.top/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/"/>
+    <id>zyboy.top/2018/08/30/2018-8-30-node.js%E8%BF%9B%E9%98%B6/</id>
+    <published>2018-08-30T15:00:00.000Z</published>
+    <updated>2019-11-05T07:39:58.998Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#get方法&quot;&gt;get方法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#post方法&quot;&gt;post&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#xhr&quot;&gt;xhr(XMLHttpRequest)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#forms表单&quot;&gt;forms表单&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#fs&quot;&gt;fs(文件读写)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#小项目练习&quot;&gt;小项目练习&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="zyboy.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="node.js" scheme="zyboy.top/tags/node-js/"/>
+    
+      <category term="html" scheme="zyboy.top/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node.js使用</title>
+    <link href="zyboy.top/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.top/2018/08/29/2018-08-29-node.js%E4%BD%BF%E7%94%A8/</id>
+    <published>2018-08-29T11:52:00.000Z</published>
+    <updated>2019-11-05T07:39:09.986Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单的说 Node.js 就是运行在服务端的 JavaScript。&lt;/p&gt;
+&lt;p&gt;Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。&lt;/p&gt;
+&lt;p&gt;Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="zyboy.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="node.js" scheme="zyboy.top/tags/node-js/"/>
+    
+      <category term="html" scheme="zyboy.top/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scrapy_redis设置及分布式爬虫案例分析</title>
+    <link href="zyboy.top/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/"/>
+    <id>zyboy.top/2018/08/16/2018-08-16-scrapy_redis%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</id>
+    <published>2018-08-16T09:52:00.000Z</published>
+    <updated>2019-08-04T06:12:20.817Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目录:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#源码&quot;&gt;源码&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#安装&quot;&gt;安装&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#settings&quot;&gt;settings&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#examples&quot;&gt;examples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#修改普通爬虫项目为分布式爬虫&quot;&gt;修改scrapy普通爬虫项目为分布式爬虫&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+    
+      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis数据库简单介绍</title>
+    <link href="zyboy.top/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>zyboy.top/2018/08/14/2018-08-13-redis%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
+    <published>2018-08-13T18:30:00.000Z</published>
+    <updated>2019-11-05T06:39:55.691Z</updated>
+    
+    <summary type="html">
+    
+      spider
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="zyboy.top/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>phantomjs使用</title>
+    <link href="zyboy.top/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.top/2018/08/11/2018-08-11-phantomjs%E4%BD%BF%E7%94%A8/</id>
+    <published>2018-08-11T13:30:20.000Z</published>
+    <updated>2019-11-05T06:36:50.649Z</updated>
+    
+    <summary type="html">
+    
+      spider
+    
+    </summary>
+    
+    
+    
+      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scrapy中间件</title>
+    <link href="zyboy.top/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    <id>zyboy.top/2018/08/11/2018-08-11-scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/</id>
+    <published>2018-08-11T13:30:20.000Z</published>
+    <updated>2019-11-05T06:39:22.679Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;中间件多用于设置请求头信息-请求数据等&quot;&gt;&lt;a href=&quot;#中间件多用于设置请求头信息-请求数据等&quot; class=&quot;headerlink&quot; title=&quot;中间件多用于设置请求头信息,请求数据等&quot;&gt;&lt;/a&gt;中间件多用于设置请求头信息,请求数据等&lt;/h3&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scrapy帮助</title>
+    <link href="zyboy.top/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/"/>
+    <id>zyboy.top/2018/08/11/2018-08-11-scrapy%E5%B8%AE%E5%8A%A9/</id>
+    <published>2018-08-11T12:30:20.000Z</published>
+    <updated>2019-11-05T06:38:41.676Z</updated>
+    
+    <summary type="html">
+    
+      spider
+    
+    </summary>
+    
+    
+    
+      <category term="爬虫" scheme="zyboy.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="scrapy" scheme="zyboy.top/tags/scrapy/"/>
+    
+  </entry>
+  
+</feed>
