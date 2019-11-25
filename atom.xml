@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="zyboy.cn/"/>
-  <updated>2019-11-10T10:27:29.792Z</updated>
+  <updated>2019-11-25T01:31:39.789Z</updated>
   <id>zyboy.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="zyboy.cn/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>zyboy.cn/2019/11/10/2019-11-10-win&amp;office%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
     <published>2019-11-10T14:00:00.000Z</published>
-    <updated>2019-11-10T10:27:29.792Z</updated>
+    <updated>2019-11-25T01:31:39.789Z</updated>
     
     <summary type="html">
     
@@ -280,17 +280,15 @@
   </entry>
   
   <entry>
-    <title>Django使用</title>
-    <link href="zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/"/>
-    <id>zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/</id>
+    <title>编码规范</title>
+    <link href="zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
     <published>2018-09-04T14:00:00.000Z</published>
-    <updated>2019-08-04T06:12:20.821Z</updated>
+    <updated>2019-08-04T06:12:20.822Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;本篇内容需具备上篇&lt;a href=&quot;https://zyboy.top/2018/09/03/2018-09-03-Django/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Django简介&lt;/a&gt;基础&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;h1 id=&quot;PEP8规范&quot;&gt;&lt;a href=&quot;#PEP8规范&quot; class=&quot;headerlink&quot; title=&quot;PEP8规范&quot;&gt;&lt;/a&gt;PEP8规范&lt;/h1&gt;&lt;p&gt;（一） 代码的编排&lt;br&gt;1、 缩进。每行需要4个空格的缩进，不要使用Tap键，更不能混合使用Tap键和空格。&lt;br&gt;2 、每行最大长度79，换行可以使用反斜杠，但最好使用圆括号。换行点要在操作符的后边敲回车。&lt;br&gt;3 、类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。&lt;/p&gt;
     
     </summary>
     
@@ -305,15 +303,17 @@
   </entry>
   
   <entry>
-    <title>编码规范</title>
-    <link href="zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>zyboy.cn/2018/09/04/2018-09-04-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
+    <title>Django使用</title>
+    <link href="zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/"/>
+    <id>zyboy.cn/2018/09/04/2018-09-04-Django%E4%BD%BF%E7%94%A8/</id>
     <published>2018-09-04T14:00:00.000Z</published>
-    <updated>2019-08-04T06:12:20.822Z</updated>
+    <updated>2019-08-04T06:12:20.821Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;PEP8规范&quot;&gt;&lt;a href=&quot;#PEP8规范&quot; class=&quot;headerlink&quot; title=&quot;PEP8规范&quot;&gt;&lt;/a&gt;PEP8规范&lt;/h1&gt;&lt;p&gt;（一） 代码的编排&lt;br&gt;1、 缩进。每行需要4个空格的缩进，不要使用Tap键，更不能混合使用Tap键和空格。&lt;br&gt;2 、每行最大长度79，换行可以使用反斜杠，但最好使用圆括号。换行点要在操作符的后边敲回车。&lt;br&gt;3 、类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本篇内容需具备上篇&lt;a href=&quot;https://zyboy.top/2018/09/03/2018-09-03-Django/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Django简介&lt;/a&gt;基础&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
